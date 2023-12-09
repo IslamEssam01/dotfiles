@@ -1,0 +1,19 @@
+{
+  "words": [
+    "bufnr",
+    "keymap",
+    "builtins",
+    "autocmd",
+    "lspconfig",
+    "nvim",
+    "lspkind",
+    "eruby",
+    "luasnip",
+    "autopairs",
+    "netrw"
+  ],
+  "version": "0.2",
+  "language": "en",
+  "flagWords": []
+}
+

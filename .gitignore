@@ -1,0 +1,13 @@
+*
+
+!.gitignore
+!tmux/
+!nvim/
+!nvim/**
+!tmux/tmux.conf
+!kitty/
+!kitty/kitty.conf
+!fish/
+!fish/config.fish
+!lazygit/
+!lazygit/config.yml
