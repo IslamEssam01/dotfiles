@@ -130,13 +130,19 @@ lsp.set_preferences({
 	},
 })
 
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+-- 	silent = true,
+-- })
+
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
 
 	--[[ vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts) ]]
 	vim.keymap.set("n", "gd", "<cmd>:Lspsaga goto_definition<cr>", opts)
 	vim.keymap.set("n", "gpd", "<cmd>:Lspsaga peek_definition<cr>", opts)
-	--[[ vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts) ]]
+	-- vim.keymap.set("n", "K", function()
+	-- 	vim.lsp.buf.hover()
+	-- end, opts)
 	vim.keymap.set("n", "K", "<cmd>:Lspsaga hover_doc<cr>", opts)
 	vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
 	vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
@@ -152,7 +158,7 @@ lsp.on_attach(function(client, bufnr)
 	--[[ vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts) ]]
 	vim.keymap.set("n", "]d", "<cmd>:Lspsaga diagnostic_jump_next<cr>", opts)
 	--[[ vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts) ]]
-	vim.keymap.set("n", "[d", "<cmd>:Lspsaga diagnostic_jump_next<cr>", opts)
+	vim.keymap.set("n", "[d", "<cmd>:Lspsaga diagnostic_jump_prev<cr>", opts)
 	--[[ vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts) ]]
 	vim.keymap.set("n", "<leader>vca", "<cmd>:Lspsaga code_action<cr>", opts)
 

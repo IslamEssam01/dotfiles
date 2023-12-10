@@ -163,40 +163,6 @@ return require("lazy").setup({
 		end,
 	},
 	{
-		"kdheepak/tabline.nvim",
-		config = function()
-			require("tabline").setup({
-				-- Defaults configuration options
-				enable = true,
-				options = {
-					-- If lualine is installed tabline will use separators configured in lualine by default.
-					-- These options can be used to override those settings.
-					section_separators = { "", "" },
-					component_separators = { "", "" },
-					max_bufferline_percent = 66, -- set to nil by default, and it uses vim.o.columns * 2/3
-					show_tabs_always = false, -- this shows tabs only when there are more than one tab or if the first tab is named
-					show_devicons = true, -- this shows devicons in buffer section
-					show_bufnr = false, -- this appends [bufnr] to buffer section,
-					show_filename_only = false, -- shows base filename only instead of relative path in filename
-					modified_icon = "+ ", -- change the default modified icon
-					modified_italic = false, -- set to true by default; this determines whether the filename turns italic if modified
-					show_tabs_only = false, -- this shows only tabs instead of tabs + buffers
-				},
-			})
-			vim.cmd([[
-      set guioptions-=e " Use showtabline in gui vim
-      set sessionoptions+=tabpages,globals " store tabpages and globals in session
-            ]])
-		end,
-	},
-	{
-		"Bekaboo/dropbar.nvim",
-		-- optional, but required for fuzzy finder support
-		dependencies = {
-			"nvim-telescope/telescope-fzf-native.nvim",
-		},
-	},
-	{
 		"danymat/neogen",
 		dependencies = "nvim-treesitter/nvim-treesitter",
 		config = true,
@@ -270,18 +236,69 @@ return require("lazy").setup({
 			vim.g.matchup_matchparen_enabled = 0
 		end,
 	},
+	-- {
+	-- 	"ray-x/lsp_signature.nvim",
+	-- 	event = "VeryLazy",
+	-- 	opts = {},
+	-- 	config = function()
+	-- 		require("lsp_signature").setup({
+	-- 			bind = true, -- This is mandatory, otherwise border config won't get registered.
+	-- 			handler_opts = {
+	-- 				border = "rounded",
+	-- 			},
+	-- 			floating_window = false,
+	-- 		})
+	-- 	end,
+	-- },
 	{
-		"ray-x/lsp_signature.nvim",
-		event = "VeryLazy",
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "make",
+	},
+	{
+		"Bekaboo/dropbar.nvim",
+		-- optional, but required for fuzzy finder support
+		dependencies = {
+			"nvim-telescope/telescope-fzf-native.nvim",
+		},
+	},
+	{
+		"folke/twilight.nvim",
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+	},
+	-- lazy.nvim
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
 		opts = {},
+	},
+	-- lazy.nvim
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			{
+				"rcarriga/nvim-notify",
+			},
+		},
+	},
+	{
+		"chrisgrieser/nvim-early-retirement",
+		config = true,
+		event = "VeryLazy",
+	},
+	{
+		"karb94/neoscroll.nvim",
 		config = function()
-			require("lsp_signature").setup({
-				bind = true, -- This is mandatory, otherwise border config won't get registered.
-				handler_opts = {
-					border = "rounded",
-				},
-				floating_window = false,
-			})
+			require("neoscroll").setup({})
 		end,
 	},
 	--[[ { "jay-babu/mason-nvim-dap.nvim" }, ]]

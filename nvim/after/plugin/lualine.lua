@@ -1,4 +1,8 @@
 require("lualine").setup({
-	options = { theme = "tokyonight" },
-	extensions = { "nvim-tree" },
+	options = {
+		theme = "tokyonight",
+		component_separators = { left = "", right = "|" },
+		section_separators = { left = "", right = "" },
+	},
+	extensions = { "nvim-tree", "nvim-dap-ui", "toggleterm" },
 })
