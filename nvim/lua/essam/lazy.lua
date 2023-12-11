@@ -35,6 +35,8 @@ return require("lazy").setup({
 			ts_update()
 		end,
 	},
+
+	{ "nvim-treesitter/nvim-treesitter-context" },
 	{
 		"mbbill/undotree",
 		config = function()
@@ -169,7 +171,6 @@ return require("lazy").setup({
 		-- Uncomment next line if you want to follow only stable versions
 		-- version = "*"
 	},
-	"jay-babu/mason-null-ls.nvim",
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 	{
 		"https://git.sr.ht/~havi/telescope-toggleterm.nvim",
@@ -301,6 +302,7 @@ return require("lazy").setup({
 			require("neoscroll").setup({})
 		end,
 	},
+	{ "wellle/targets.vim" },
 	--[[ { "jay-babu/mason-nvim-dap.nvim" }, ]]
 	--[[ { ]]
 	--[[ 	"zbirenbaum/copilot.lua", ]]
