@@ -6,9 +6,6 @@ vim.keymap.set("n", "<leader>pd", builtin.diagnostics, { desc = "get diagnostics
 vim.keymap.set("n", "<leader>ps", builtin.current_buffer_fuzzy_find, { desc = "fuzzy find in buffer using telescope" })
 vim.keymap.set("n", "<leader>pb", builtin.buffers, { desc = "find buffers using telescope" })
 vim.keymap.set("n", "<leader>pg", builtin.live_grep, { desc = "live grep using telescope" })
-require("telescope").load_extension("file_browser")
-
-require("telescope").load_extension("undo")
 require("telescope").setup({
 	extensions = {
 		undo = { use_delta = true },
@@ -23,3 +20,7 @@ require("telescope").setup({
 	},
 })
 require("telescope").load_extension("fzf")
+
+require("telescope").load_extension("file_browser")
+
+require("telescope").load_extension("undo")

@@ -4,7 +4,10 @@ end
 
 set -g -x fish_greeting ''
 starship init fish | source
+zoxide init fish | source
 
+# ~/.config/tmux/plugins
+fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 
 # TokyoNight Color Palette
 set -l foreground c0caf5
