@@ -21,7 +21,6 @@ return require("lazy").setup({
 	},
 	"nvim-telescope/telescope-file-browser.nvim",
 
-	"navarasu/onedark.nvim",
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
@@ -237,20 +236,6 @@ return require("lazy").setup({
 			vim.g.matchup_matchparen_enabled = 0
 		end,
 	},
-	-- {
-	-- 	"ray-x/lsp_signature.nvim",
-	-- 	event = "VeryLazy",
-	-- 	opts = {},
-	-- 	config = function()
-	-- 		require("lsp_signature").setup({
-	-- 			bind = true, -- This is mandatory, otherwise border config won't get registered.
-	-- 			handler_opts = {
-	-- 				border = "rounded",
-	-- 			},
-	-- 			floating_window = false,
-	-- 		})
-	-- 	end,
-	-- },
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
 		build = "make",
@@ -303,6 +288,57 @@ return require("lazy").setup({
 		end,
 	},
 	{ "wellle/targets.vim" },
+	-- Lazy.nvim
+	{
+		"echasnovski/mini.sessions",
+		version = false,
+		config = function()
+			require("mini.sessions").setup({})
+			vim.keymap.set(
+				"n",
+				"<leader>ms",
+				": lua MiniSessions.write('')<Left><Left>",
+				{ desc = "MiniSessions write" }
+			)
+			vim.keymap.set("n", "<leader>rs", ": lua MiniSessions.read('')<Left><Left>", { desc = "MiniSessions read" })
+			vim.keymap.set(
+				"n",
+				"<leader>ds",
+				": lua MiniSessions.delete('')<Left><Left>",
+				{ desc = "MiniSessions delete" }
+			)
+		end,
+	},
+
+	{
+		"echasnovski/mini.starter",
+		version = false,
+
+		config = function()
+			require("mini.starter").setup({})
+		end,
+	},
+	{
+		"echasnovski/mini.indentscope",
+		version = false,
+		config = function()
+			require("mini.indentscope").setup({})
+		end,
+	},
+
+	-- Lazy.nvim
+	{
+		"TobinPalmer/Tip.nvim",
+		event = "VimEnter",
+		init = function()
+			-- Default config
+			--- @type Tip.config
+			require("tip").setup({
+				title = "Tip!",
+				url = "https://vtip.43z.one",
+			})
+		end,
+	},
 	--[[ { "jay-babu/mason-nvim-dap.nvim" }, ]]
 	--[[ { ]]
 	--[[ 	"zbirenbaum/copilot.lua", ]]

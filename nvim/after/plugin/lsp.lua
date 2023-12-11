@@ -159,7 +159,7 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "]d", "<cmd>:Lspsaga diagnostic_jump_next<cr>", opts)
 	--[[ vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts) ]]
 	vim.keymap.set("n", "[d", "<cmd>:Lspsaga diagnostic_jump_prev<cr>", opts)
-    
+
 	--[[ vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts) ]]
 	vim.keymap.set("n", "<leader>vca", "<cmd>:Lspsaga code_action<cr>", opts)
 
