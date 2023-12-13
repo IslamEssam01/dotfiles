@@ -36,6 +36,7 @@ return require("lazy").setup({
 	},
 
 	{ "nvim-treesitter/nvim-treesitter-context" },
+	{ "nvim-treesitter/nvim-treesitter-textobjects" },
 	{
 		"mbbill/undotree",
 		config = function()
@@ -259,7 +260,10 @@ return require("lazy").setup({
 	{
 		"m4xshen/hardtime.nvim",
 		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-		opts = {},
+		opts = {
+			-- Add "oil" to the disabled_filetypes
+			disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason", "noice", "sagaoutline", "help" },
+		},
 	},
 	-- lazy.nvim
 	{
@@ -283,9 +287,6 @@ return require("lazy").setup({
 	},
 	{
 		"karb94/neoscroll.nvim",
-		config = function()
-			require("neoscroll").setup({})
-		end,
 	},
 	{ "wellle/targets.vim" },
 	-- Lazy.nvim
@@ -338,6 +339,42 @@ return require("lazy").setup({
 				url = "https://vtip.43z.one",
 			})
 		end,
+	},
+	{
+		"RRethy/vim-illuminate",
+
+		config = function()
+			vim.keymap.set(
+				"n",
+				"]]",
+				'<cmd> lua require("illuminate").goto_next_reference() <CR>',
+				{ desc = "go to next reference" }
+			)
+			vim.keymap.set(
+				"n",
+				"[[",
+				'<cmd> lua require("illuminate").goto_prev_reference() <CR>',
+				{ desc = "go to next reference" }
+			)
+		end,
+	},
+	-- lazy.nvim:
+	{
+		"smoka7/multicursors.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"smoka7/hydra.nvim",
+		},
+		opts = {},
+		cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+		keys = {
+			{
+				mode = { "v", "n" },
+				"<Leader>m",
+				"<cmd>MCstart<cr>",
+				desc = "Create a selection for selected text or word under the cursor",
+			},
+		},
 	},
 	--[[ { "jay-babu/mason-nvim-dap.nvim" }, ]]
 	--[[ { ]]
