@@ -33,12 +33,16 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 999
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 1000
 vim.g.mapleader = " "
+
+-- this is for comments
 vim.cmd([[autocmd FileType * set formatoptions-=cro]])
+
+vim.opt.inccommand = "split"
 
 --vim.cmd([[autocmd TextChanged,TextChangedI * if &buftype=="" && !&readonly | silent write|endif]])
 --[[ vim.opt.updatetime = 1000 ]]

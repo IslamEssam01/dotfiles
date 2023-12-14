@@ -262,7 +262,7 @@ return require("lazy").setup({
 		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
 		opts = {
 			-- Add "oil" to the disabled_filetypes
-			disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason", "noice", "sagaoutline", "help" },
+			disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason", "noice", "sagaoutline", "help", "vim" },
 		},
 	},
 	-- lazy.nvim
@@ -287,6 +287,9 @@ return require("lazy").setup({
 	},
 	{
 		"karb94/neoscroll.nvim",
+		config = function()
+			require("neoscroll").setup({})
+		end,
 	},
 	{ "wellle/targets.vim" },
 	-- Lazy.nvim
