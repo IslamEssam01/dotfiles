@@ -67,7 +67,6 @@ return require("lazy").setup({
 	{ "onsails/lspkind-nvim" },
 	{ "saadparwaiz1/cmp_luasnip", dependencies = { "rafamadriz/friendly-snippets" } },
 	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-cmdline" },
 	{ "hrsh7th/cmp-nvim-lua" },
 	{
 		"windwp/nvim-autopairs",
@@ -245,7 +244,7 @@ return require("lazy").setup({
 		"Bekaboo/dropbar.nvim",
 		-- optional, but required for fuzzy finder support
 		dependencies = {
-			"nvim-telescope/telescope-fzf-native.nvim",
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 	},
 	{
@@ -260,10 +259,8 @@ return require("lazy").setup({
 	{
 		"m4xshen/hardtime.nvim",
 		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-		opts = {
-			-- Add "oil" to the disabled_filetypes
-			disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason", "noice", "sagaoutline", "help", "vim" },
-		},
+		-- opts = {
+		-- },
 	},
 	-- lazy.nvim
 	{
@@ -311,6 +308,7 @@ return require("lazy").setup({
 				": lua MiniSessions.delete('')<Left><Left>",
 				{ desc = "MiniSessions delete" }
 			)
+			vim.keymap.set("n", "<leader>mls", "<cmd> mksession!<CR>", { desc = "Make local session" })
 		end,
 	},
 
@@ -379,13 +377,51 @@ return require("lazy").setup({
 			},
 		},
 	},
-	--[[ { "jay-babu/mason-nvim-dap.nvim" }, ]]
-	--[[ { ]]
-	--[[ 	"zbirenbaum/copilot.lua", ]]
-	--[[ 	cmd = "Copilot", ]]
-	--[[ 	event = "InsertEnter", ]]
-	--[[ 	config = function() ]]
-	--[[ 		require("copilot").setup({}) ]]
-	--[[ 	end, ]]
-	--[[ }, ]]
+	{ "JoseConseco/telescope_sessions_picker.nvim" },
+	{ "ThePrimeagen/harpoon", branch = "harpoon2" },
+	-- {
+	-- 	"jinh0/eyeliner.nvim",
+	-- 	config = function()
+	-- 		require("eyeliner").setup({
+	-- 			highlight_on_key = true, -- show highlights only after keypress
+	-- 			dim = true, -- dim all other characters if set to true (recommended!)
+	-- 		})
+	-- 	end,
+	-- },
+	{
+		"danielfalk/smart-open.nvim",
+		branch = "0.2.x",
+		dependencies = {
+			"kkharji/sqlite.lua",
+			-- Only required if using match_algorithm fzf
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		},
+	},
+	{
+		"ggandor/leap.nvim",
+		init = function()
+			require("leap").add_default_mappings(true)
+		end,
+		dependencies = {
+			"tpope/vim-repeat",
+		},
+		lazy = false,
+	},
+	{
+		"ggandor/flit.nvim",
+		config = function()
+			require("flit").setup({
+				keys = { f = "f", F = "F", t = "t", T = "T" },
+				-- A string like "nv", "nvo", "o", etc.
+				labeled_modes = "v",
+				multiline = false,
+				-- Like `leap`s similar argument (call-specific overrides).
+				-- E.g.: opts = { equivalence_classes = {} }
+
+				opts = {},
+			})
+		end,
+	},
+
+	-- dadbod , copilot
 })

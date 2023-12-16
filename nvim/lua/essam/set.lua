@@ -38,6 +38,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 1000
 vim.g.mapleader = " "
+vim.opt.clipboard = "unnamedplus"
 
 -- this is for comments
 vim.cmd([[autocmd FileType * set formatoptions-=cro]])

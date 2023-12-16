@@ -27,6 +27,7 @@ cmp.setup({
 		{ name = "path" },
 		-- { name = "nvim_lsp_signature_help" },
 		{ name = "neorg" },
+
 		{ name = "buffer" },
 	},
 	window = {
@@ -80,4 +81,19 @@ cmp.setup({
 			end
 		end, { "i", "s" }),
 	},
+})
+
+local function db_completion()
+	require("cmp").setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {
+		"sql",
+		"mysql",
+		"plsql",
+	},
+	callback = function()
+		vim.schedule(db_completion)
+	end,
 })
