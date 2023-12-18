@@ -9,4 +9,4 @@ zoxide
 fzf
 thefuck
 starship
-
+password store
