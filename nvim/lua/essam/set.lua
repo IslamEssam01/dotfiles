@@ -38,7 +38,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 1000
 vim.g.mapleader = " "
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = ""
 
 -- this is for comments
 vim.cmd([[autocmd FileType * set formatoptions-=cro]])
@@ -52,7 +52,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "InsertLeavePre", "BufLeave", "Focu
 	pattern = { "*" },
 	callback = function()
 		if vim.bo.buftype == "" and not vim.bo.readonly then
-			vim.api.nvim_command("silent update")
+			vim.api.nvim_command("silent write")
 		end
 	end,
 })

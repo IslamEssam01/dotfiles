@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+---@diagnostic disable-next-line: undefined-field
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
@@ -273,6 +274,7 @@ return require("lazy").setup({
 			--   `nvim-notify` is only needed, if you want to use the notification view.
 			--   If not available, we use `mini` as the fallback
 			{
+
 				"rcarriga/nvim-notify",
 			},
 		},
@@ -293,32 +295,11 @@ return require("lazy").setup({
 	{
 		"echasnovski/mini.sessions",
 		version = false,
-		config = function()
-			require("mini.sessions").setup({})
-			vim.keymap.set(
-				"n",
-				"<leader>ms",
-				": lua MiniSessions.write('')<Left><Left>",
-				{ desc = "MiniSessions write" }
-			)
-			vim.keymap.set("n", "<leader>rs", ": lua MiniSessions.read('')<Left><Left>", { desc = "MiniSessions read" })
-			vim.keymap.set(
-				"n",
-				"<leader>ds",
-				": lua MiniSessions.delete('')<Left><Left>",
-				{ desc = "MiniSessions delete" }
-			)
-			vim.keymap.set("n", "<leader>mls", "<cmd> mksession!<CR>", { desc = "Make local session" })
-		end,
 	},
 
 	{
 		"echasnovski/mini.starter",
 		version = false,
-
-		config = function()
-			require("mini.starter").setup({})
-		end,
 	},
 	{
 		"echasnovski/mini.indentscope",
@@ -334,6 +315,7 @@ return require("lazy").setup({
 		event = "VimEnter",
 		init = function()
 			-- Default config
+			---@diagnostic disable-next-line: undefined-doc-name
 			--- @type Tip.config
 			require("tip").setup({
 				title = "Tip!",
@@ -360,23 +342,7 @@ return require("lazy").setup({
 		end,
 	},
 	-- lazy.nvim:
-	{
-		"smoka7/multicursors.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"smoka7/hydra.nvim",
-		},
-		opts = {},
-		cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
-		keys = {
-			{
-				mode = { "v", "n" },
-				"<Leader>m",
-				"<cmd>MCstart<cr>",
-				desc = "Create a selection for selected text or word under the cursor",
-			},
-		},
-	},
+
 	{ "JoseConseco/telescope_sessions_picker.nvim" },
 	{ "ThePrimeagen/harpoon", branch = "harpoon2" },
 	-- {
@@ -408,17 +374,13 @@ return require("lazy").setup({
 		lazy = false,
 	},
 	{
-		"ggandor/flit.nvim",
-		config = function()
-			require("flit").setup({
-				keys = { f = "f", F = "F", t = "t", T = "T" },
-				-- A string like "nv", "nvo", "o", etc.
-				labeled_modes = "v",
-				multiline = false,
-				-- Like `leap`s similar argument (call-specific overrides).
-				-- E.g.: opts = { equivalence_classes = {} }
 
-				opts = {},
+		"jinh0/eyeliner.nvim",
+		config = function()
+			require("eyeliner").setup({
+				highlight_on_key = true, -- show highlights only after keypress
+				dim = true, -- dim all other characters if set to true (recommended!)
+				match = "[0-9a-zA-Z]",
 			})
 		end,
 	},

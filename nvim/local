@@ -1,0 +1,152 @@
+let SessionLoad = 1
+let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
+let v:this_session=expand("<sfile>:p")
+silent only
+silent tabonly
+cd ~/.config/nvim
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+let s:shortmess_save = &shortmess
+if &shortmess =~ 'A'
+  set shortmess=aoOA
+else
+  set shortmess=aoO
+endif
+badd +1 after/plugin/telescope.lua
+badd +1 ~/.config/nvim/after/plugin/harpoon.lua
+badd +336 lua/essam/lazy.lua
+badd +1 lua/essam/set.lua
+badd +10 ~/.config/nvim/after/plugin/mini.lua
+argglobal
+%argdel
+edit lua/essam/lazy.lua
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+balt lua/essam/set.lua
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=99
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+4,10fold
+3,11fold
+17,21fold
+25,29fold
+33,35fold
+31,36fold
+43,44fold
+41,45fold
+52,54fold
+60,65fold
+75,76fold
+72,77fold
+95,96fold
+94,97fold
+90,98fold
+110,113fold
+108,114fold
+106,115fold
+104,116fold
+102,117fold
+100,118fold
+120,122fold
+130,133fold
+127,134fold
+125,135fold
+139,141fold
+144,145fold
+143,146fold
+137,147fold
+151,152fold
+149,153fold
+159,161fold
+163,164fold
+157,165fold
+167,172fold
+178,179fold
+175,180fold
+182,184fold
+189,192fold
+194,195fold
+186,196fold
+199,201fold
+203,206fold
+217,218fold
+220,221fold
+223,224fold
+213,225fold
+209,226fold
+230,231fold
+228,232fold
+236,237fold
+234,238fold
+240,242fold
+247,248fold
+244,249fold
+253,256fold
+251,257fold
+260,264fold
+276,278fold
+270,279fold
+267,280fold
+282,285fold
+289,290fold
+287,291fold
+295,297fold
+300,302fold
+307,308fold
+304,309fold
+320,322fold
+316,323fold
+313,324fold
+329,341fold
+326,342fold
+360,363fold
+357,364fold
+368,369fold
+371,372fold
+366,374fold
+380,383fold
+379,384fold
+376,385fold
+15,388fold
+let &fdl = &fdl
+15
+normal! zo
+326
+normal! zo
+let s:l = 44 - ((14 * winheight(0) + 14) / 29)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 44
+normal! 017|
+tabnext 1
+if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20
+let &shortmess = s:shortmess_save
+let &winminheight = s:save_winminheight
+let &winminwidth = s:save_winminwidth
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if filereadable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &g:so = s:so_save | let &g:siso = s:siso_save
+nohlsearch
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
