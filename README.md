@@ -11,7 +11,7 @@ ripgrep
 fisher for fish  
 fzf.fish  
 sqlite for telescope smart open  
-nnn
+nnn  
 pdftoppm  
 glow  
 ueberzugpp  
