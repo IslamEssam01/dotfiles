@@ -5,8 +5,11 @@ end
 set -g -x fish_greeting ''
 starship init fish | source
 zoxide init fish | source
-alias fd=fdfind
 set -Ux EDITOR nvim
+# alias mountEECE='~/mountEECE-RClone.sh'
+# alias unmountEECE='~/unmountEECE-RClone.sh'
+
+set fzf_fd_opts --hidden --exclude=.git
 
 # ~/.config/tmux/plugins
 fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin

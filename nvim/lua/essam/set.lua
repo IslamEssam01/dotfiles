@@ -36,9 +36,12 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 999
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
-vim.opt.updatetime = 1000
+vim.opt.updatetime = 50
 vim.g.mapleader = " "
 vim.opt.clipboard = ""
+vim.o.timeout = true
+vim.o.timeoutlen = 2000
+
 
 -- this is for comments
 vim.cmd([[autocmd FileType * set formatoptions-=cro]])
@@ -48,17 +51,17 @@ vim.opt.inccommand = "split"
 --vim.cmd([[autocmd TextChanged,TextChangedI * if &buftype=="" && !&readonly | silent write|endif]])
 --[[ vim.opt.updatetime = 1000 ]]
 --[[ vim.cmd( [[autocmd InsertLeave,InsertLeavePre,BufLeave,FocusLost,CursorHold,CursorHoldI * if &buftype=="" && !&readonly |silent update  | endif]]
-vim.api.nvim_create_autocmd({ "InsertLeave", "InsertLeavePre", "BufLeave", "FocusLost", "CursorHold", "CursorHoldI" }, {
-	pattern = { "*" },
-	callback = function()
-		if vim.bo.buftype == "" and not vim.bo.readonly then
-			vim.api.nvim_command("silent write")
-		end
-	end,
+vim.api.nvim_create_autocmd({ "InsertLeave", "InsertLeavePre", "BufLeave", "FocusLost", }, {
+    pattern = { "*" },
+    callback = function()
+        if vim.bo.buftype == "" and not vim.bo.readonly then
+            vim.api.nvim_command("silent write")
+        end
+    end,
 })
 --[[ vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 vim.diagnostic.config({
-	update_in_insert = true,
+    update_in_insert = true,
 })
 
 vim.g.skip_ts_context_commentstring_module = true

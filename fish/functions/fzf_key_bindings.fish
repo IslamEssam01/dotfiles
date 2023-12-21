@@ -1,1 +1,0 @@
-/home/essam/.fzf/shell/key-bindings.fish
