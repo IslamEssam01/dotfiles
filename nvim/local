@@ -15,9 +15,9 @@ else
 endif
 badd +3 after/plugin/telescope.lua
 badd +1 after/plugin/harpoon.lua
-badd +372 lua/essam/lazy.lua
-badd +45 lua/essam/set.lua
-badd +21 after/plugin/mini.lua
+badd +373 lua/essam/lazy.lua
+badd +6 lua/essam/set.lua
+badd +29 after/plugin/mini.lua
 badd +4 after/plugin/lspsaga.lua
 badd +23 lua/essam/remap.lua
 badd +1 Session.vim
@@ -26,7 +26,7 @@ badd +1 test.lua
 badd +15 after/plugin/noice.lua
 argglobal
 %argdel
-edit lua/essam/lazy.lua
+edit after/plugin/mini.lua
 wincmd t
 let s:save_winminheight = &winminheight
 let s:save_winminwidth = &winminwidth
@@ -35,7 +35,7 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-balt after/plugin/lspsaga.lua
+balt lua/essam/set.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -45,92 +45,17 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-4,10fold
-3,11fold
-17,21fold
-25,29fold
-33,35fold
-31,36fold
-43,44fold
-41,45fold
-52,54fold
-60,65fold
-75,76fold
-72,77fold
-95,96fold
-94,97fold
-90,98fold
-110,113fold
-108,114fold
-106,115fold
-104,116fold
-102,117fold
-100,118fold
-120,122fold
-128,131fold
-127,132fold
-125,133fold
-137,139fold
-142,143fold
-141,144fold
-135,145fold
-149,150fold
-147,151fold
-157,159fold
-161,162fold
-155,163fold
-165,170fold
-176,177fold
-173,178fold
-180,182fold
-187,190fold
-192,193fold
-184,194fold
-197,199fold
-201,204fold
-215,216fold
-218,219fold
-221,222fold
-211,223fold
-207,224fold
-228,229fold
-226,230fold
-234,235fold
-232,236fold
-238,240fold
-245,246fold
-242,247fold
-251,254fold
-249,255fold
-258,262fold
-274,276fold
-268,277fold
-265,278fold
-280,283fold
-287,288fold
-285,289fold
-293,295fold
-298,300fold
-305,306fold
-302,307fold
-314,326fold
-311,327fold
-345,348fold
-342,349fold
-353,354fold
-356,357fold
-351,359fold
-365,368fold
-364,369fold
-361,370fold
-15,371fold
+1,2fold
+6,8fold
+11,28fold
+5,31fold
 let &fdl = &fdl
-let s:l = 372 - ((27 * winheight(0) + 14) / 29)
+let s:l = 29 - ((21 * winheight(0) + 15) / 30)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 372
-normal! 0
+keepjumps 29
+normal! 081|
 lcd ~/.config/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

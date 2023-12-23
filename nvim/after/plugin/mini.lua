@@ -1,21 +1,34 @@
 require("mini.sessions").setup({
-	file = "local",
+    file = "local",
 })
 
 require("mini.starter").setup({
-	content_hooks = {
-		require("mini.starter").gen_hook.adding_bullet(""),
-		require("mini.starter").gen_hook.aligning("center", "center"),
-	},
-	footer = os.date(),
-	header = table.concat({
-		[[  /\ \▔\___  ___/\   /(●)_ __ ___  ]],
-		[[ /  \/ / _ \/ _ \ \ / / | '_ ` _ \ ]],
-		[[/ /\  /  __/ (_) \ V /| | | | | | |]],
-		[[\_\ \/ \___|\___/ \_/ |_|_| |_| |_|]],
-		[[───────────────────────────────────]],
-	}, "\n"),
-	query_updaters = [[abcdefghilmoqrstuvwxyz0123456789_-,.ABCDEFGHIJKLMOQRSTUVWXYZ]],
+    content_hooks = {
+        require("mini.starter").gen_hook.adding_bullet(""),
+        require("mini.starter").gen_hook.aligning("center", "center"),
+    },
+    footer = os.date(),
+    header = table.concat({
+        [[                                                                       ]],
+        [[                                                                       ]],
+        [[                                                                       ]],
+        [[                                                                       ]],
+        [[                                                                       ]],
+        [[                                                                       ]],
+        [[                                                                       ]],
+        [[                                                                     ]],
+        [[       ████ ██████           █████      ██                     ]],
+        [[      ███████████             █████                             ]],
+        [[      █████████ ███████████████████ ███   ███████████   ]],
+        [[     █████████  ███    █████████████ █████ ██████████████   ]],
+        [[    █████████ ██████████ █████████ █████ █████ ████ █████   ]],
+        [[  ███████████ ███    ███ █████████ █████ █████ ████ █████  ]],
+        [[ ██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
+        [[                                                                       ]],
+        [[                                                                       ]],
+        [[───────────────────────────────────────────────────────────────────────]], }
+    , "\n"),
+    query_updaters = [[abcdefghilmoqrstuvwxyz0123456789_-,.ABCDEFGHIJKLMOQRSTUVWXYZ]],
 })
 
 vim.keymap.set("n", "<leader>ms", ": lua MiniSessions.write('')<Left><Left>", { desc = "MiniSessions write" })

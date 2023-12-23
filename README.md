@@ -25,6 +25,10 @@ tar
 advcpmv  
 rclone  
 fusermount  
-
+imagemagick  
+zathura (for pdf)  
 
 ## Set up delta and delta theme
+
+
+# nchat for whatsapp ( use on bidi terminal like konsole )
