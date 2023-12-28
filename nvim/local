@@ -13,29 +13,26 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +3 after/plugin/telescope.lua
-badd +1 after/plugin/harpoon.lua
-badd +373 lua/essam/lazy.lua
-badd +6 lua/essam/set.lua
-badd +29 after/plugin/mini.lua
-badd +4 after/plugin/lspsaga.lua
-badd +23 lua/essam/remap.lua
-badd +1 Session.vim
-badd +1 spell/en.utf-8.add
-badd +1 test.lua
-badd +15 after/plugin/noice.lua
+badd +64 lua/essam/set.lua
+badd +1 after/plugin/ufo.lua
+badd +72 after/plugin/which-key.lua
+badd +374 lua/essam/lazy.lua
+badd +1 after/plugin/lspsaga.lua
+badd +1 lua/essam/packer.lua
+badd +1 after/plugin/dap.lua
+badd +1 lua/essam/remap.lua
+badd +27 after/plugin/null-ls.lua
+badd +8 after/plugin/cmp.lua
+badd +5 after/plugin/lsp.lua
+badd +1 init.lua
+badd +11 utils/lsp_servers.lua
+badd +1 after/plugin/mason.lua
+badd +22 after/plugin/rainbow-delimiters.lua
 argglobal
 %argdel
-edit after/plugin/mini.lua
-wincmd t
-let s:save_winminheight = &winminheight
-let s:save_winminwidth = &winminwidth
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
+edit after/plugin/mason.lua
 argglobal
-balt lua/essam/set.lua
+balt after/plugin/lsp.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -45,17 +42,13 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-1,2fold
-6,8fold
-11,28fold
-5,31fold
 let &fdl = &fdl
-let s:l = 29 - ((21 * winheight(0) + 15) / 30)
+let s:l = 1 - ((0 * winheight(0) + 14) / 28)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 29
-normal! 081|
+keepjumps 1
+normal! 0
 lcd ~/.config/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
@@ -64,8 +57,6 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
-let &winminheight = s:save_winminheight
-let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)

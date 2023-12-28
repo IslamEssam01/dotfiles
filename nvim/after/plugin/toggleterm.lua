@@ -2,7 +2,7 @@ require("toggleterm").setup({
 	size = 80,
 	open_mapping = [[<C-\>]],
 	direction = "vertical",
-	shell = vim.o.shell,
+	shell = "/bin/fish",
 })
 
 function _G.set_terminal_keymaps()

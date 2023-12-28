@@ -51,11 +51,11 @@ cmp.setup({
 
 	mapping = {
 
-		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+		["<C-p>"] = cmp.mapping.select_prev_item(),
+		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<C-f>"] = cmp.mapping.confirm({ select = true }),
-
 		["<C-Space>"] = cmp.mapping.complete(),
+
 
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
@@ -83,7 +83,7 @@ cmp.setup({
 	},
 })
 
-local function db_completion()
+--[[ local function db_completion()
 	require("cmp").setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
 end
 
@@ -96,4 +96,4 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function()
 		vim.schedule(db_completion)
 	end,
-})
+}) ]]

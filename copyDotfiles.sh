@@ -1,8 +1,11 @@
-mkdir ~/.config/dotfiles
-cp ~/.config/copyDotfiles.sh ~/.config/dotfiles/
-cp -r ~/.config/nvim/ ~/.config/dotfiles/
-mkdir ~/.config/dotfiles/fish | cp -r ~/.config/fish/functions/ ~/.config/fish/config.fish ~/.config/dotfiles/fish
-mkdir ~/.config/dotfiles/nnn | cp -r ~/.config/nnn/plugins ~/.config/dotfiles/nnn
-mkdir ~/.config/dotfiles/tmux | cp ~/.config/tmux/tmux.conf ~/.config/dotfiles/tmux
-mkdir ~/.config/dotfiles/kitty | cp ~/.config/kitty/kitty.conf ~/.config/dotfiles/kitty
-mkdir ~/.config/dotfiles/lazygit | cp ~/.config/lazygit/config.yml ~/.config/dotfiles/lazygit
+mkdir $HOME/.config/dotfiles
+cp $HOME/.config/copyDotfiles.sh $HOME/.config/dotfiles/
+cp -r $HOME/.config/nvim/ $HOME/.config/dotfiles/
+cp -r $HOME/.config/i3/ $HOME/.config/dotfiles/
+cp -r $HOME/.config/i3blocks/ $HOME/.config/dotfiles/
+cp -r $HOME/.config/rofi/ $HOME/.config/dotfiles/
+mkdir $HOME/.config/dotfiles/fish | cp -r $HOME/.config/fish/functions/ $HOME/.config/fish/config.fish $HOME/.config/dotfiles/fish
+mkdir $HOME/.config/dotfiles/nnn | cp -r $HOME/.config/nnn/plugins $HOME/.config/dotfiles/nnn
+mkdir $HOME/.config/dotfiles/tmux | cp $HOME/.config/tmux/tmux.conf $HOME/.config/dotfiles/tmux
+mkdir $HOME/.config/dotfiles/kitty | cp $HOME/.config/kitty/kitty.conf $HOME/.config/dotfiles/kitty
+mkdir $HOME/.config/dotfiles/lazygit | cp $HOME/.config/lazygit/config.yml $HOME/.config/dotfiles/lazygit

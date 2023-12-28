@@ -1,21 +1,3 @@
-local builtin = require("telescope.builtin")
-
--- vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "find files using telescope" })
-vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "find git files using telescope" })
-vim.keymap.set("n", "<leader>pd", builtin.diagnostics, { desc = "get diagnostics from lsp in telescope" })
-vim.keymap.set("n", "<leader>ps", builtin.current_buffer_fuzzy_find, { desc = "fuzzy find in buffer using telescope" })
-vim.keymap.set("n", "<leader>pb", builtin.buffers, { desc = "find buffers using telescope" })
-vim.keymap.set("n", "<leader>pg", builtin.live_grep, { desc = "live grep using telescope" })
-vim.keymap.set(
-	"n",
-	"<leader>pp",
-	require("telescope").extensions.sessions_picker.sessions_picker,
-	{ desc = "pick session" }
-)
-vim.keymap.set("n", "<leader>pf", function()
-	require("telescope").extensions.smart_open.smart_open({ cwd_only = true, filename_first = true })
-end, { desc = "find files using smart open", noremap = true, silent = true })
-
 require("telescope").setup({
 	extensions = {
 		undo = { use_delta = true },

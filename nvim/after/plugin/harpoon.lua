@@ -2,9 +2,6 @@ local harpoon = require("harpoon")
 
 harpoon:setup()
 
-vim.keymap.set("n", "<leader>mm", function()
-	harpoon:list():append()
-end, { desc = "mark file in harpoon" })
 vim.keymap.set("n", "<C-e>", function()
 	harpoon.ui:toggle_quick_menu(harpoon:list())
 end)
