@@ -48,4 +48,7 @@ noto fonts emoji
 
 ## for to use betterlockscreen as the lock screen be sure to check the XAUTHORITY variable (echo $XAUTHORITY) same for DISPLAY and in the systemd service the ENVIROMENT should look something like Environment=DISPLAY=:0 XAUTHORITY=/tmp/xauth_fPgFxk
 
+## for i3blocks modules configure some stuff manually 
+### source for miccontrol
+
 # nchat for whatsapp ( use on bidi terminal like konsole )

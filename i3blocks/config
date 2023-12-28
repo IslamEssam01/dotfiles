@@ -1,6 +1,19 @@
-[bandwidth]
-command=~/.config/i3blocks/bandwidth/bandwidth.sh
+
+
+[miccontrol]
+command=~/.config/i3blocks/miccontrol/miccontrol
+#label=MIC
+SOURCE=alsa_input.pci-0000_00_14.2.3.analog-stereo
 interval=1
+signal=10
+
+
+[bandwidth]
+full_text=<span fallback='true'>   0.0 B/s</span> <span fallback='true'>   0.0 B/s</span>
+command=~/.config/i3blocks/bandwidth/bandwidth2 
+interval=persist
+markup=pango
+LABEL=
 
 [DISK]
 command=df -h / | awk '/\//{ printf(" 💾 %4s/%s \n", $4, $2) }'
@@ -25,7 +38,8 @@ color=#FEC925
 [SOUND]
 full_text= 🔇:  0% 
 command=~/.config/i3blocks/sound/sound_info.sh
-interval=repeat
+interval=1
+signal=1
 
 [TIME_DATE]
 command=date +" %a, %d %b - %I:%M:%S"
