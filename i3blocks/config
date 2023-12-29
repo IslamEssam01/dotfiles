@@ -1,13 +1,5 @@
 
 
-[miccontrol]
-command=~/.config/i3blocks/miccontrol/miccontrol
-#label=MIC
-SOURCE=alsa_input.pci-0000_00_14.2.3.analog-stereo
-interval=1
-signal=10
-
-
 [bandwidth]
 full_text=<span fallback='true'>   0.0 B/s</span> <span fallback='true'>   0.0 B/s</span>
 command=~/.config/i3blocks/bandwidth/bandwidth2 
@@ -15,10 +7,10 @@ interval=persist
 markup=pango
 LABEL=
 
-[DISK]
-command=df -h / | awk '/\//{ printf(" 💾 %4s/%s \n", $4, $2) }'
-interval=2
-color=#C9E3DB
+# [DISK]
+# command=df -h / | awk '/\//{ printf(" 💾 %4s/%s \n", $4, $2) }'
+# interval=2
+# color=#C9E3DB
 
 [BATTERY]
 command=~/.config/i3blocks/battery/battery_info.sh
@@ -35,11 +27,29 @@ command=free -h | awk '/Mem:/ { printf(" 🐏 %5s/%s \n", $3, $2) }'
 interval=1
 color=#FEC925
 
+
+[brightness]
+command=./brightness/bin/brightness -a /sys/class/backlight/radeon_bl0/actual_brightness -m /sys/class/backlight/radeon_bl0/max_brightness
+interval=persist
+
+
+
+[miccontrol]
+command=~/.config/i3blocks/miccontrol/miccontrol
+#label=MIC
+interval=1
+signal=10
+
 [SOUND]
 full_text= 🔇:  0% 
 command=~/.config/i3blocks/sound/sound_info.sh
 interval=1
 signal=1
+
+
+[kbdd_layout]
+command=~/.config/i3blocks/kbdd_layout/kbdd_layout
+interval=persist
 
 [TIME_DATE]
 command=date +" %a, %d %b - %I:%M:%S"
