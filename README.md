@@ -1,5 +1,7 @@
 # Requirments
 
+systemd
+
 fd  
 zoxide  
 fzf  
@@ -33,7 +35,9 @@ yay as aur helper (arch)
 i3wm
 i3blocks
 pamixer
-pactl
+
+<!-- pactl -->
+
 brightnessctl
 acpi
 sysstat
@@ -45,6 +49,9 @@ Network Manager
 iw
 kbdd
 dunst
+xrandar
+numlockx
+xidlehook
 
 ## fonts
 
@@ -53,7 +60,7 @@ noto fonts emoji
 
 ## Set up delta and delta theme
 
-## for to use betterlockscreen as the lock screen be sure to check the XAUTHORITY variable (echo $XAUTHORITY) same for DISPLAY and in the systemd service the ENVIROMENT should look something like Environment=DISPLAY=:0 XAUTHORITY=/tmp/xauth_fPgFxk
+## setup betterlockscreen systemd service
 
 ## for i3blocks modules configure some stuff manually
 
