@@ -1,6 +1,6 @@
 # Requirments
 
-ly dm
+ly dm  
 systemd
 
 yay as aur helper (arch)
@@ -31,32 +31,32 @@ advcpmv
 rclone  
 fusermount  
 imagemagick  
-zathura (for pdf)
+zathura (for pdf)  
 xdg-utils
 
-i3wm
-i3blocks
+i3wm  
+i3blocks  
 pamixer
 
 <!-- pactl -->
 
-brightnessctl
-acpi
-sysstat
-lm_sensors
-betterlockscreen
-rofi
-rofi-wifi-menu
-Network Manager
-nm-applet
-iw
-kbdd
-dunst
-xrandr
-arandr
-numlockx
-xidlehook
-autorandr
+brightnessctl  
+acpi  
+sysstat  
+lm_sensors  
+betterlockscreen  
+rofi  
+rofi-wifi-menu  
+Network Manager  
+nm-applet  
+iw  
+kbdd  
+dunst  
+xrandr  
+arandr  
+numlockx  
+xidlehook  
+autorandr  
 dolphin
 
 VLC
