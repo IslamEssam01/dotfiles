@@ -1,5 +1,6 @@
 # Requirments
 
+ly dm
 systemd
 
 yay as aur helper (arch)
