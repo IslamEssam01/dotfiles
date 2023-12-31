@@ -4,6 +4,7 @@ cp -r $HOME/.config/nvim/ $HOME/.config/dotfiles/
 cp -r $HOME/.config/i3/ $HOME/.config/dotfiles/
 cp -r $HOME/.config/i3blocks/ $HOME/.config/dotfiles/
 cp -r $HOME/.config/rofi/ $HOME/.config/dotfiles/
+cp -r $HOME/.config/autorandr/ $HOME/.config/dotfiles/
 mkdir $HOME/.config/dotfiles/fish | cp -r $HOME/.config/fish/functions/ $HOME/.config/fish/config.fish $HOME/.config/dotfiles/fish
 mkdir $HOME/.config/dotfiles/nnn | cp -r $HOME/.config/nnn/plugins $HOME/.config/dotfiles/nnn
 mkdir $HOME/.config/dotfiles/tmux | cp $HOME/.config/tmux/tmux.conf $HOME/.config/dotfiles/tmux

@@ -1,5 +1,6 @@
 local lsp_servers = require("utils.lsp_servers")
 
+
 require("mason-tool-installer").setup({
 	ensure_installed = {
 		"js-debug-adapter",

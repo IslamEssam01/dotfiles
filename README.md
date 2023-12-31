@@ -2,6 +2,8 @@
 
 systemd
 
+yay as aur helper (arch)
+
 fd  
 zoxide  
 fzf  
@@ -29,8 +31,7 @@ rclone
 fusermount  
 imagemagick  
 zathura (for pdf)
-
-yay as aur helper (arch)
+xdg-utils
 
 i3wm
 i3blocks
@@ -46,12 +47,18 @@ betterlockscreen
 rofi
 rofi-wifi-menu
 Network Manager
+nm-applet
 iw
 kbdd
 dunst
-xrandar
+xrandr
+arandr
 numlockx
 xidlehook
+autorandr
+dolphin
+
+VLC
 
 ## fonts
 
@@ -61,6 +68,8 @@ noto fonts emoji
 ## Set up delta and delta theme
 
 ## setup betterlockscreen systemd service
+
+## configure autorandr layouts
 
 ## for i3blocks modules configure some stuff manually
 
