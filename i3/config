@@ -76,9 +76,13 @@ bindsym XF86AudioRaiseVolume  exec --no-startup-id pamixer -i 5   && pkill -RTMI
 bindsym XF86AudioMicMute exec --no-startup-id pamixer --default-source -t && pkill -RTMIN+10 i3blocks
 bindsym $mod+m exec --no-startup-id pamixer --default-source -t && pkill -RTMIN+10 i3blocks
 
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
+# bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+# bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+#
 #
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -102,7 +106,8 @@ bindsym $mod+d exec --no-startup-id rofi -show drun -disable-history -show-icons
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 
-bindsym $mod+c exec --no-startup-id google-chrome-stable
+# bindsym $mod+c exec --no-startup-id google-chrome-stable
+bindsym $mod+c exec --no-startup-id thorium-browser 
 
 # change focus
 bindsym $mod+h focus left
@@ -234,7 +239,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 # exec_always --no-startup-id ~/.config/polybar/i3_bar.sh
-tiling_drag titlebar
+# tiling_drag titlebar
 
 # for_window [all] title_window_icon on
 
@@ -263,22 +268,41 @@ client.background       #ffffff
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
+# this may change from a computer to another
+set $left_monitor "HDMI-1"
+
+workspace 1 output primary 
+workspace 2 output primary 
+workspace 3 output primary 
+workspace 4 output primary 
+
+
+workspace 5 output $left_monitor 
+workspace 6 output $left_monitor 
+workspace 7 output $left_monitor 
+workspace 8 output $left_monitor 
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
+assign [class="Google-chrome"] 2
+assign [class="Thorium-browser"] 2
+for_window [class="Google-chrome"] focus
+for_window [class="Thorium-browser"] focus
+focus_on_window_activation focus
+
+
 # SynPS/2\ Synaptics\ TouchPad is the touchpad device in xinput , 275 is for click on tap
 # 283 is for natural scrolling
-exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" 275 1 
-exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" 283 1 
-
-#this will defer from a computer to another
-exec --no-startup-id xrandr --output HDMI-1 --auto --left-of LVDS-1
-
-exec --no-startup-id  numlockx on
-exec --no-startup-id "setxkbmap -layout us,eg -option 'grp:alt_shift_toggle'"
-exec --no-startup-id  feh --bg-scale $HOME/Downloads/outerwilds.jpg 
-exec --no-startup-id $HOME/.config/i3/scripts/idle.sh 
-exec --no-startup-id $HOME/.config/copyDotfiles.sh 
-
-
+# exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" 275 1 
+# exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" 283 1 
+#
+# #this will defer from a computer to another
+# exec --no-startup-id xrandr --output HDMI-1 --auto --left-of LVDS-1
+#
+# exec --no-startup-id  numlockx on
+# exec --no-startup-id "setxkbmap -layout us,eg -option 'grp:alt_shift_toggle'"
+exec --no-startup-id  feh --bg-scale $HOME/wallpapers/outerwilds.jpg
+# exec --no-startup-id $HOME/.config/i3/scripts/idle.sh 
+# exec --no-startup-id $HOME/.config/copyDotfiles.sh 
+# exec --no-startup-id nitrogen --restore

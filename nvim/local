@@ -13,25 +13,15 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +64 lua/essam/set.lua
-badd +1 after/plugin/ufo.lua
-badd +72 after/plugin/which-key.lua
-badd +374 lua/essam/lazy.lua
-badd +1 after/plugin/lspsaga.lua
-badd +1 lua/essam/packer.lua
-badd +1 after/plugin/dap.lua
-badd +1 lua/essam/remap.lua
-badd +27 after/plugin/null-ls.lua
-badd +8 after/plugin/cmp.lua
-badd +5 after/plugin/lsp.lua
-badd +1 init.lua
-badd +11 utils/lsp_servers.lua
-badd +2 after/plugin/mason.lua
-badd +22 after/plugin/rainbow-delimiters.lua
-badd +79 after/plugin/treesitter.lua
+badd +76 lua/plugins/cmp.lua
+badd +1 lua/essam/set.lua
+badd +1 lua/essam/lazy.lua
+badd +72 lua/plugins/lsp.lua
+badd +21 lua/plugins/toggleterm.lua
+badd +1 lua/plugins/telescope.lua
 argglobal
 %argdel
-edit after/plugin/treesitter.lua
+edit lua/essam/set.lua
 wincmd t
 let s:save_winminheight = &winminheight
 let s:save_winminwidth = &winminwidth
@@ -40,7 +30,7 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-balt after/plugin/mason.lua
+balt lua/essam/lazy.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -50,24 +40,14 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-12,15fold
-17,18fold
-25,42fold
-20,43fold
-45,46fold
-49,53fold
-59,71fold
-56,72fold
-74,79fold
-55,80fold
-1,81fold
+61,62fold
 let &fdl = &fdl
-let s:l = 79 - ((25 * winheight(0) + 14) / 29)
+let s:l = 1 - ((0 * winheight(0) + 14) / 29)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 79
-normal! 032|
+keepjumps 1
+normal! 023|
 lcd ~/.config/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

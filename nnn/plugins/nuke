@@ -130,6 +130,8 @@ handle_video() {
     if [ "$GUI" -ne 0 ]; then
         if is_mac; then
             nohup open "${FPATH}" >/dev/null 2>&1 &
+        elif type vlc >/dev/null 2>&1; then
+            nohup vlc "${FPATH}" >/dev/null 2>&1 &
         elif type org.videolan.VLC >/dev/null 2>&1; then
             nohup org.videolan.VLC "${FPATH}" >/dev/null 2>&1 &
         elif type smplayer >/dev/null 2>&1; then

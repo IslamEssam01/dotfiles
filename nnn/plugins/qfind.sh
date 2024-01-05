@@ -7,5 +7,5 @@ read -r pattern
 
 if ! [ -z "$pattern" ]; then
     printf "%s" "+l" > "$NNN_PIPE"
-    eval "fd -HI0 '$pattern'  $HOME" > "$NNN_PIPE"
+    eval "fd -HI0 -E mounts '$pattern'  $HOME" > "$NNN_PIPE"
 fi

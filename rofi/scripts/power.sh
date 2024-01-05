@@ -7,8 +7,8 @@ case "$chosen" in
 	"Restart") reboot ;;
 	"Suspend") systemctl suspend ;;
 	"Hibernate") systemctl hibernate ;;
-	"Log Out") bspc quit ;;
+	"Log Out") loginctl kill-user $USER ;;
     # ❯ betterlockscreen --lock -- --time-str '%l:%H:%S %p'
-	"Lock") betterlockscreen -l  -- --time-str "%I:%M:%S %p";;
+	"Lock") xflock4 ;;
 	*) exit 1 ;;
 esac

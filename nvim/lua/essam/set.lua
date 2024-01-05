@@ -50,16 +50,16 @@ vim.opt.inccommand = "split"
 --[[ vim.opt.updatetime = 1000 ]]
 --[[ vim.cmd( [[autocmd InsertLeave,InsertLeavePre,BufLeave,FocusLost,CursorHold,CursorHoldI * if &buftype=="" && !&readonly |silent update  | endif]]
 
-vim.api.nvim_create_autocmd({ "InsertLeave", "InsertLeavePre", "BufLeave", "FocusLost" }, {
-    pattern = { "*" },
-    callback = function(client, bufnr)
-        if vim.bo.buftype == "" and not vim.bo.readonly then
-            vim.api.nvim_command("silent update")
-        end
-    end,
-})
+-- vim.api.nvim_create_autocmd({ "InsertLeave", "InsertLeavePre", "BufLeave", "FocusLost" }, {
+-- 	pattern = { "*" },
+-- 	callback = function(client, bufnr)
+-- 		if vim.bo.buftype == "" and not vim.bo.readonly then
+-- 			vim.api.nvim_command("silent update")
+-- 		end
+-- 	end,
+-- })
 --[[ vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 vim.diagnostic.config({
-    update_in_insert = true,
+	update_in_insert = true,
 })
 vim.g.skip_ts_context_commentstring_module = true

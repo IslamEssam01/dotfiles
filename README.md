@@ -1,7 +1,8 @@
 # Requirments
 
-ly dm  
+light dm  
 systemd
+xfce
 
 yay as aur helper (arch)
 
@@ -17,6 +18,7 @@ fisher for fish
 fzf.fish  
 sqlite for telescope smart open  
 nnn  
+tree  
 pdftoppm  
 glow  
 ueberzugpp  
@@ -26,10 +28,12 @@ unzip
 pmount  
 lsblk  
 udisks2  
-tar  
+atool  
+unrar  
 advcpmv  
 rclone  
 fusermount  
+fuse  
 imagemagick  
 zathura (for pdf)  
 xdg-utils
@@ -37,6 +41,7 @@ xdg-utils
 i3wm  
 i3blocks  
 pamixer
+playerctl
 
 <!-- pactl -->
 
@@ -50,14 +55,20 @@ rofi-wifi-menu
 Network Manager  
 nm-applet  
 iw  
-kbdd  
-dunst  
-xrandr  
-arandr  
-numlockx  
-xidlehook  
-autorandr  
-dolphin
+kbdd
+
+<!-- dunst   -->
+<!-- xrandr   -->
+<!-- arandr   -->
+<!-- numlockx   -->
+<!-- xidlehook   -->
+<!-- autorandr -->
+
+<!-- dolphin -->
+
+ntfs
+feh
+xclip
 
 VLC
 

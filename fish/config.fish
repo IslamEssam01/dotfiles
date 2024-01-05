@@ -11,6 +11,9 @@ set -Ux EDITOR nvim
 
 set fzf_fd_opts --hidden --exclude=.git
 
+fzf_configure_bindings
+
+
 # ~/.config/tmux/plugins
 fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 
