@@ -291,6 +291,9 @@ for_window [class="Google-chrome"] focus
 for_window [class="Thorium-browser"] focus
 focus_on_window_activation focus
 
+assign [class="Spotify"] 4
+
+bindsym Print exec --no-startup-id flameshot gui 
 
 # SynPS/2\ Synaptics\ TouchPad is the touchpad device in xinput , 275 is for click on tap
 # 283 is for natural scrolling

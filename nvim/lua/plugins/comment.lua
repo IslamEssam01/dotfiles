@@ -3,20 +3,27 @@ return {
 
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		depnendencies = {
-			"numToStr/Comment.nvim",
+			"echasnovski/mini.comment",
 		},
 	},
 	{
-		"numToStr/Comment.nvim",
+		"echasnovski/mini.comment",
+		version = false,
 		config = function()
-			require("Comment").setup({
-				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-			})
-
 			require("ts_context_commentstring").setup({
 
 				enable_autocmd = false,
 			})
+
+			require("mini.comment").setup({
+				options = {
+					custom_commentstring = function()
+						return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
+					end,
+				},
+			})
+
+			vim.g.skip_ts_context_commentstring_module = true
 		end,
 	},
 }

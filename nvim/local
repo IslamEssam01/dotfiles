@@ -13,15 +13,24 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +76 lua/plugins/cmp.lua
-badd +1 lua/essam/set.lua
+badd +64 lua/essam/set.lua
 badd +1 lua/essam/lazy.lua
 badd +72 lua/plugins/lsp.lua
 badd +21 lua/plugins/toggleterm.lua
 badd +1 lua/plugins/telescope.lua
+badd +3 lua/plugins/noice.lua
+badd +74 lua/plugins/mini.lua
+badd +1 lua/plugins/colorscheme.lua
+badd +112 lua/plugins/init.lua
+badd +16 lua/plugins/comment.lua
+badd +1 lua/plugins/dap.lua
+badd +68 lua/plugins/treesitter.lua
+badd +1 lua/essam/remap.lua
+badd +316 health://
+badd +77 lua/plugins/cmp.lua
 argglobal
 %argdel
-edit lua/essam/set.lua
+edit lua/plugins/cmp.lua
 wincmd t
 let s:save_winminheight = &winminheight
 let s:save_winminwidth = &winminwidth
@@ -30,7 +39,7 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-balt lua/essam/lazy.lua
+balt lua/essam/set.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -40,14 +49,38 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-61,62fold
+10,12fold
+3,13fold
+18,26fold
+29,33fold
+48,49fold
+47,50fold
+52,60fold
+62,64fold
+75,76fold
+68,77fold
+67,78fold
+89,92fold
+93,94fold
+95,96fold
+97,98fold
+88,99fold
+103,104fold
+105,106fold
+107,108fold
+102,109fold
+81,110fold
+45,111fold
+28,112fold
+16,113fold
+1,114fold
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 14) / 29)
+let s:l = 77 - ((14 * winheight(0) + 14) / 29)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 023|
+keepjumps 77
+normal! 028|
 lcd ~/.config/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
