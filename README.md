@@ -1,7 +1,7 @@
 # Requirments
 
 light dm  
-systemd
+systemd  
 xfce
 
 yay as aur helper (arch)
@@ -40,7 +40,7 @@ xdg-utils
 
 i3wm  
 i3blocks  
-pamixer
+pamixer  
 playerctl
 
 <!-- pactl -->
@@ -70,7 +70,7 @@ ntfs
 feh
 xclip
 
-VLC
+VLC  
 7-zip-full
 
 ## fonts
