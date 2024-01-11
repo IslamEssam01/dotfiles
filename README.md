@@ -21,7 +21,7 @@ nnn
 tree  
 pdftoppm  
 glow  
-ueberzugpp  
+ueberzug
 archivemount  
 zip  
 unzip  
@@ -71,6 +71,7 @@ feh
 xclip
 
 VLC
+7-zip-full
 
 ## fonts
 
