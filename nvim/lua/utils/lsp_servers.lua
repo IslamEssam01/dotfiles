@@ -9,4 +9,5 @@ return {
 	"prismals",
 	"jsonls",
 	"clangd",
+	"pyright",
 }
