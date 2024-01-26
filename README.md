@@ -80,12 +80,10 @@ noto fonts emoji
 
 ## Set up delta and delta theme
 
-## setup betterlockscreen systemd service
-
-## configure autorandr layouts
-
 ## for i3blocks modules configure some stuff manually
 
 ### source for miccontrol in the script itself
 
 # nchat for whatsapp ( use on bidi terminal like konsole )
+
+# search for realistic copy time for flash drive ( the vm.dirt_bytes hack )
