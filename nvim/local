@@ -13,24 +13,12 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +64 lua/essam/set.lua
-badd +1 lua/essam/lazy.lua
-badd +72 lua/plugins/lsp.lua
-badd +21 lua/plugins/toggleterm.lua
-badd +1 lua/plugins/telescope.lua
-badd +3 lua/plugins/noice.lua
+badd +42 lua/plugins/cmp.lua
+badd +33 lua/plugins/init.lua
 badd +74 lua/plugins/mini.lua
-badd +1 lua/plugins/colorscheme.lua
-badd +112 lua/plugins/init.lua
-badd +16 lua/plugins/comment.lua
-badd +1 lua/plugins/dap.lua
-badd +68 lua/plugins/treesitter.lua
-badd +1 lua/essam/remap.lua
-badd +316 health://
-badd +77 lua/plugins/cmp.lua
 argglobal
 %argdel
-edit lua/plugins/cmp.lua
+edit lua/plugins/init.lua
 wincmd t
 let s:save_winminheight = &winminheight
 let s:save_winminwidth = &winminwidth
@@ -39,7 +27,7 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-balt lua/essam/set.lua
+balt lua/plugins/mini.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -49,38 +37,53 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-10,12fold
-3,13fold
-18,26fold
-29,33fold
-48,49fold
-47,50fold
-52,60fold
-62,64fold
-75,76fold
-68,77fold
-67,78fold
-89,92fold
-93,94fold
+6,7fold
+10,11fold
+4,12fold
+24,25fold
+23,26fold
+19,27fold
+18,30fold
+33,34fold
+32,35fold
+16,36fold
+39,41fold
+46,47fold
+43,48fold
+53,55fold
+57,58fold
+51,59fold
+62,67fold
+69,71fold
+76,79fold
+81,82fold
+73,83fold
+88,89fold
+86,90fold
 95,96fold
-97,98fold
-88,99fold
-103,104fold
-105,106fold
-107,108fold
-102,109fold
-81,110fold
-45,111fold
-28,112fold
-16,113fold
-1,114fold
+92,97fold
+101,104fold
+99,105fold
+107,110fold
+114,115fold
+112,116fold
+122,134fold
+119,135fold
+139,140fold
+142,143fold
+137,145fold
+151,154fold
+150,155fold
+147,156fold
+160,163fold
+1,165fold
 let &fdl = &fdl
-let s:l = 77 - ((14 * winheight(0) + 14) / 29)
+let s:l = 33 - ((13 * winheight(0) + 14) / 28)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 77
-normal! 028|
+keepjumps 33
+normal! 016|
 lcd ~/.config/nvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
