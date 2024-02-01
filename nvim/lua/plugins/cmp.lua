@@ -34,7 +34,6 @@ return {
 			end
 
 			local cmp = require("cmp")
-			local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
@@ -96,6 +95,8 @@ return {
 
 				mapping = {
 
+					["<C-j>"] = cmp.mapping.scroll_docs(4),
+					["<C-k>"] = cmp.mapping.scroll_docs(-4),
 					["<C-p>"] = cmp.mapping.select_prev_item(),
 					["<C-n>"] = cmp.mapping.select_next_item(),
 					["<C-f>"] = cmp.mapping.confirm({ select = true }),

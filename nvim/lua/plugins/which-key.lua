@@ -16,13 +16,8 @@ return {
 				s = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "fuzzy find in buffer" },
 				b = { "<cmd> Telescope buffers <CR>", "fuzzy find buffers" },
 				g = { "<cmd> Telescope live_grep <CR>", "live grep" },
-				p = { "<cmd> Telescope sessions_picker", "fuzzy find sessions" },
-				f = {
-					function()
-						require("telescope").extensions.smart_open.smart_open({ cwd_only = true, filename_first = true })
-					end,
-					"fuzzy find files using smart open",
-				},
+				p = { "<cmd> Telescope sessions_picker <CR>", "fuzzy find sessions" },
+				f = { "<cmd> Telescope find_files <CR>", "fuzzy find files" },
 
 				{
 					[["_dp]],

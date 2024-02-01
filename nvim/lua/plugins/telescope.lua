@@ -8,18 +8,10 @@ return {
 			{ "debugloop/telescope-undo.nvim" },
 			{ "nvim-telescope/telescope-file-browser.nvim" },
 			{
-				"https://git.sr.ht/~havi/telescope-toggleterm.nvim",
-				event = "TermOpen",
-				config = function()
-					require("telescope").load_extension("toggleterm")
-				end,
-			},
-			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = "make",
 			},
 			{ "JoseConseco/telescope_sessions_picker.nvim" },
-			{ "smart_open" },
 		},
 
 		config = function()
@@ -37,12 +29,10 @@ return {
 					sessions_picker = {
 						sessions_dir = vim.fn.stdpath("data") .. "/session/", -- same as '/home/user/.local/share/nvim/session'
 					},
-					smart_open = {
-						show_scores = false,
-						ignore_patterns = { "*.git/*", "*/tmp/*" },
-						match_algorithm = "fzf",
-						disable_devicons = false,
-						open_buffer_indicators = { previous = "👀", others = "🙈" },
+				},
+				defaults = {
+					file_ignore_patterns = {
+						"node_modules",
 					},
 				},
 			})
@@ -53,17 +43,6 @@ return {
 			require("telescope").load_extension("undo")
 
 			require("telescope").load_extension("sessions_picker")
-			require("telescope").load_extension("smart_open")
 		end,
-	},
-	{
-		"danielfalk/smart-open.nvim",
-		branch = "0.2.x",
-		name = "smart_open",
-		dependencies = {
-			"kkharji/sqlite.lua",
-			-- Only required if using match_algorithm fzf
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		},
 	},
 }

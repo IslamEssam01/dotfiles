@@ -21,14 +21,14 @@ return {
 						bufnr,
 						"n",
 						"<leader>f",
-						"<cmd> lua  vim.lsp.buf.format({ bufnr = bufnr ,timeout_ms = 2000 }) <CR>",
+						"<cmd> lua  vim.lsp.buf.format({ bufnr = bufnr ,timeout_ms = 3000 }) <CR>",
 						{ desc = "format file" }
 					)
 
 					vim.api.nvim_create_autocmd("BufWritePre", {
 						buffer = bufnr,
 						callback = function()
-							vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 2000 })
+							vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 3000 })
 						end,
 					})
 				end

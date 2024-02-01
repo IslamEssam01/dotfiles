@@ -39,7 +39,7 @@ vim.opt.updatetime = 50
 vim.g.mapleader = " "
 vim.o.timeout = true
 vim.o.timeoutlen = 500
-
+vim.opt.clipboard = "unnamedplus"
 vim.opt.mouse = "a"
 
 -- this is for comments
@@ -52,14 +52,14 @@ vim.opt.inccommand = "split"
 --[[ vim.cmd( [[autocmd InsertLeave,InsertLeavePre,BufLeave,FocusLost,CursorHold,CursorHoldI * if &buftype=="" && !&readonly |silent update  | endif]]
 
 vim.api.nvim_create_autocmd({ "InsertLeave", "InsertLeavePre", "BufLeave", "FocusLost" }, {
-	pattern = { "*" },
-	callback = function(client, bufnr)
-		if vim.bo.buftype == "" and not vim.bo.readonly then
-			vim.api.nvim_command("silent update")
-		end
-	end,
+    pattern = { "*" },
+    callback = function(client, bufnr)
+        if vim.bo.buftype == "" and not vim.bo.readonly then
+            vim.api.nvim_command("silent update")
+        end
+    end,
 })
 --[[ vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 vim.diagnostic.config({
-	update_in_insert = true,
+    update_in_insert = true,
 })
