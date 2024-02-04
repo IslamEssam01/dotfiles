@@ -80,7 +80,7 @@ return {
 						["ai"] = "@conditional.outer",
 						["il"] = "@loop.inner",
 						["al"] = "@loop.outer",
-						["at"] = "@comment.outer",
+						-- ["at"] = "@comment.outer",
 					},
 				},
 				move = {

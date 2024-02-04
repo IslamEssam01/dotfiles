@@ -56,25 +56,25 @@ return {
 							},
 						})
 					end
-					if ls == "tsserver" then
-						local function organize_imports()
-							local params = {
-								command = "_typescript.organizeImports",
-								arguments = { vim.api.nvim_buf_get_name(0) },
-							}
-							vim.lsp.buf.execute_command(params)
-						end
-						require("lspconfig").tsserver.setup({
-							capabilities = capabilities,
-							on_attach = function(client, bfnr)
-								vim.api.nvim_create_user_command(
-									"OrganizeImports",
-									organize_imports,
-									{ desc = "Organize Imports" }
-								)
-							end,
-						})
-					end
+					-- if ls == "tsserver" then
+					-- 	local function organize_imports()
+					-- 		local params = {
+					-- 			command = "_typescript.organizeImports",
+					-- 			arguments = { vim.api.nvim_buf_get_name(0) },
+					-- 		}
+					-- 		vim.lsp.buf.execute_command(params)
+					-- 	end
+					-- 	require("lspconfig").tsserver.setup({
+					-- 		capabilities = capabilities,
+					-- 		on_attach = function(client, bfnr)
+					-- 			vim.api.nvim_create_user_command(
+					-- 				"OrganizeImports",
+					-- 				organize_imports,
+					-- 				{ desc = "Organize Imports" }
+					-- 			)
+					-- 		end,
+					-- 	})
+					-- end
 
 					if ls == "jsonls" then
 						require("lspconfig").jsonls.setup({
@@ -154,7 +154,7 @@ return {
 						vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
 						vim.keymap.set("n", "go", "<cmd>:Lspsaga goto_type_definition<cr>", opts)
 						vim.keymap.set("n", "gpf", "<cmd>:Lspsaga finder<cr>", opts)
-						vim.keymap.set("n", "K", "<cmd>:Lspsaga hover_doc<cr>", opts)
+						vim.keymap.set("n", "K", "<cmd>:Lspsaga hover_doc <cr>", opts)
 						vim.keymap.set("n", "<leader>a", "<cmd>:Lspsaga outline<cr>")
 						vim.keymap.set("n", "<leader>vws", function()
 							vim.lsp.buf.workspace_symbol()

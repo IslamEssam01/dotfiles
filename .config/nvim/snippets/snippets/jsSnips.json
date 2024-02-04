@@ -1,0 +1,14 @@
+{
+  "Print to console": {
+    "prefix": "cl",
+    "scope": "javascript,typescript,javascriptreact",
+    "body": ["console.log($1)"],
+    "description": "console.log"
+  },
+  "for loop": {
+    "prefix": "for",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": ["for(let $1 = $2; $1<$3 ; $1$4){$5}"],
+    "description": "for loop"
+  }
+}

@@ -24,6 +24,7 @@ return {
 			{ "saadparwaiz1/cmp_luasnip", dependencies = { "rafamadriz/friendly-snippets" } },
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-nvim-lua" },
+			{ "hrsh7th/cmp-cmdline" },
 		},
 		config = function()
 			local has_words_before = function()
@@ -49,8 +50,8 @@ return {
 					end,
 				},
 				sources = {
-					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
+					{ name = "nvim_lsp" },
 					{ name = "nvim_lua" },
 					{ name = "path" },
 					-- { name = "nvim_lsp_signature_help" },
@@ -66,12 +67,6 @@ return {
 				formatting = {
 					format = require("lspkind").cmp_format({
 						mode = "symbol_text", -- show only symbol annotations
-						menu = {
-							buffer = "[Buffer]",
-							luasnip = "[LuaSnip]",
-							nvim_lua = "[Lua]",
-							latex_symbols = "[Latex]",
-						},
 						maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 						ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
 
@@ -87,6 +82,14 @@ return {
 									lspserver_name = entry.source.source.client.name
 									vim_item.menu = lspserver_name
 								end)
+							elseif entry.source.name == "buffer" then
+								vim_item.menu = "Buffer"
+							elseif entry.source.name == "luasnip" then
+								vim_item.menu = "LuaSnip"
+							elseif entry.source.name == "path" then
+								vim_item.menu = "Path"
+							elseif entry.source.name == "nvim_lua" then
+								vim_item.menu = "Lua"
 							end
 							return vim_item
 						end,
@@ -97,14 +100,14 @@ return {
 
 					["<C-j>"] = cmp.mapping.scroll_docs(4),
 					["<C-k>"] = cmp.mapping.scroll_docs(-4),
-					["<C-p>"] = cmp.mapping.select_prev_item(),
-					["<C-n>"] = cmp.mapping.select_next_item(),
+					["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+					["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
 					["<C-f>"] = cmp.mapping.confirm({ select = true }),
 					["<C-Space>"] = cmp.mapping.complete(),
 
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
-							cmp.select_next_item()
+							cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
 							-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() ]]
 							-- that way you will only jump inside the snippet region ]]
 						elseif luasnip.expand_or_jumpable() then
@@ -118,14 +121,56 @@ return {
 
 					["<S-Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
-							cmp.select_prev_item()
+							cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
 						elseif luasnip.jumpable(-1) then
 							luasnip.jump(-1)
 						else
 							fallback()
 						end
 					end, { "i", "s" }),
+					["<CR>"] = cmp.mapping({
+						i = function(fallback)
+							if cmp.visible() and cmp.get_active_entry() then
+								cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+							else
+								fallback()
+							end
+						end,
+						s = cmp.mapping.confirm({ select = true }),
+						c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+					}),
 				},
+				experimental = {
+					ghost_text = true,
+				},
+			}) -- `/` cmdline setup.
+			cmp.setup.cmdline("/", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = {
+					{ name = "buffer" },
+				},
+			}) -- `:` cmdline setup.
+			cmp.setup.cmdline(":", {
+				mapping = {
+					["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+					["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+					["<C-Space>"] = cmp.mapping.complete(),
+					["<Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+					["<S-Tab>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+					["<CR>"] = cmp.mapping(function(fallback)
+						fallback()
+					end, { "i", "s", "c" }),
+				},
+				sources = cmp.config.sources({
+					{ name = "path" },
+				}, {
+					{
+						name = "cmdline",
+						option = {
+							ignore_cmds = { "Man", "!", "w", "q" },
+						},
+					},
+				}),
 			})
 		end,
 	},
