@@ -21,6 +21,13 @@ return {
 			name = "lspconfig",
 			dependencies = { "hrsh7th/cmp-nvim-lsp" },
 			config = function()
+				local function lspSymbol(name, icon)
+					vim.fn.sign_define("DiagnosticSign" .. name, { text = icon, numhl = "DiagnosticDefault" .. name })
+				end
+				lspSymbol("Error", " ")
+				lspSymbol("Hint", "")
+				lspSymbol("Info", " ")
+				lspSymbol("Warn", " ")
 				local lsp_servers = require("utils.lsp_servers")
 
 				local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -196,9 +203,9 @@ return {
 						vim.keymap.set({ "n", "v" }, "<leader>vca", "<cmd>:Lspsaga code_action<cr>", opts)
 
 						vim.keymap.set("n", "<leader>vrn", "<cmd>:Lspsaga rename<cr>", opts)
-						vim.keymap.set("i", "<C-h>", function()
-							vim.lsp.buf.signature_help()
-						end, opts)
+						-- vim.keymap.set("i", "<C-h>", function()
+						-- 	vim.lsp.buf.signature_help()
+						-- end, opts)
 					end,
 				})
 

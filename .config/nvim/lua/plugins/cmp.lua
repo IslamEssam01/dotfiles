@@ -17,7 +17,6 @@ return {
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 			{ "luasnip" },
 			{ "hrsh7th/cmp-path" },
 			{ "onsails/lspkind-nvim" },
@@ -54,7 +53,6 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lua" },
 					{ name = "path" },
-					-- { name = "nvim_lsp_signature_help" },
 					{ name = "neorg" },
 
 					{ name = "buffer" },
@@ -128,17 +126,6 @@ return {
 							fallback()
 						end
 					end, { "i", "s" }),
-					["<CR>"] = cmp.mapping({
-						i = function(fallback)
-							if cmp.visible() and cmp.get_active_entry() then
-								cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-							else
-								fallback()
-							end
-						end,
-						s = cmp.mapping.confirm({ select = true }),
-						c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-					}),
 				},
 				experimental = {
 					ghost_text = true,
@@ -151,16 +138,7 @@ return {
 				},
 			}) -- `:` cmdline setup.
 			cmp.setup.cmdline(":", {
-				mapping = {
-					["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-					["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-					["<S-Tab>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-					["<CR>"] = cmp.mapping(function(fallback)
-						fallback()
-					end, { "i", "s", "c" }),
-				},
+				mapping = cmp.mapping.preset.cmdline(),
 				sources = cmp.config.sources({
 					{ name = "path" },
 				}, {
