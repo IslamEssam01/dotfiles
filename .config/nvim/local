@@ -3,7 +3,7 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/.config/nvim
+cd ~/dotfiles/.config/nvim
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -13,12 +13,13 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +42 lua/plugins/cmp.lua
-badd +33 lua/plugins/init.lua
-badd +74 lua/plugins/mini.lua
+badd +2 ~/dotfiles/.config/nvim/lua/plugins/arrow.lua
+badd +1 lua/essam/set.lua
+badd +205 lua/plugins/init.lua
+badd +19 lua/plugins/which-key.lua
 argglobal
 %argdel
-edit lua/plugins/init.lua
+edit lua/plugins/which-key.lua
 wincmd t
 let s:save_winminheight = &winminheight
 let s:save_winminwidth = &winminwidth
@@ -27,7 +28,7 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-balt lua/plugins/mini.lua
+balt lua/plugins/init.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -38,53 +39,28 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 6,7fold
-10,11fold
-4,12fold
-24,25fold
 23,26fold
-19,27fold
-18,30fold
-33,34fold
-32,35fold
-16,36fold
-39,41fold
-46,47fold
-43,48fold
-53,55fold
-57,58fold
-51,59fold
-62,67fold
-69,71fold
-76,79fold
-81,82fold
-73,83fold
-88,89fold
-86,90fold
-95,96fold
-92,97fold
-101,104fold
-99,105fold
-107,110fold
-114,115fold
-112,116fold
-122,134fold
-119,135fold
-139,140fold
-142,143fold
-137,145fold
-151,154fold
-150,155fold
-147,156fold
-160,163fold
-1,165fold
+14,27fold
+29,31fold
+33,36fold
+38,41fold
+44,46fold
+50,52fold
+54,56fold
+58,60fold
+62,64fold
+48,65fold
+67,69fold
+13,70fold
+10,71fold
+2,72fold
 let &fdl = &fdl
-let s:l = 33 - ((13 * winheight(0) + 14) / 28)
+let s:l = 19 - ((14 * winheight(0) + 14) / 29)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 33
-normal! 016|
-lcd ~/.config/nvim
+keepjumps 19
+normal! 017|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -99,7 +75,6 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

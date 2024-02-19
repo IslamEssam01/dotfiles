@@ -11,7 +11,12 @@ return {
 			fast_wrap = {},
 		}, -- this is equalent to setup({}) function
 	},
-	{ "christoomey/vim-tmux-navigator" },
+	{
+		"numToStr/Navigator.nvim",
+		config = function()
+			require("Navigator").setup({})
+		end,
+	},
 
 	{
 		"roobert/surround-ui.nvim",
@@ -44,7 +49,18 @@ return {
 		"norcalli/nvim-colorizer.lua",
 
 		config = function()
-			require("colorizer").setup()
+			require("colorizer").setup({ "*" }, {
+				RGB = true, -- #RGB hex codes
+				RRGGBB = true, -- #RRGGBB hex codes
+				names = true, -- "Name" codes like Blue
+				RRGGBBAA = true, -- #RRGGBBAA hex codes
+				rgb_fn = true, -- CSS rgb() and rgba() functions
+				hsl_fn = true, -- CSS hsl() and hsla() functions
+				css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+				css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+				-- Available modes: foreground, background
+				mode = "background", -- Set the display mode.
+			})
 		end,
 	},
 	{ "f-person/git-blame.nvim" },
@@ -166,6 +182,7 @@ return {
 		},
 		lazy = false,
 	},
+
 	{
 
 		"jinh0/eyeliner.nvim",
@@ -177,12 +194,34 @@ return {
 			})
 		end,
 	},
-	"folke/trouble.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
-	opts = {
-		-- your configuration comes here
-		-- or leave it empty to use the default settings
-		-- refer to the configuration section below
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
 	},
-	-- dadbod , copilot
+	{ "dyng/ctrlsf.vim" },
+	{
+		"AckslD/nvim-neoclip.lua",
+		dependencies = {
+			{ "kkharji/sqlite.lua" },
+		},
+		config = function()
+			require("neoclip").setup({ enable_persistent_history = true, enable_macro_history = true })
+		end,
+	},
+
+	{
+		"roobert/tailwindcss-colorizer-cmp.nvim",
+		-- optionally, override the default options:
+		config = function()
+			require("tailwindcss-colorizer-cmp").setup({
+				color_square_width = 2,
+			})
+		end,
+	},
+	-- dadbod , snap
 }

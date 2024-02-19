@@ -47,7 +47,7 @@ keepjumps exe s:l
 normal! zt
 keepjumps 6
 normal! 09|
-lcd ~/.config/nvim
+lcd ~/.config/n
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

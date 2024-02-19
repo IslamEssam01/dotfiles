@@ -1,3 +1,4 @@
+-- return {}
 return {
 	"pmizio/typescript-tools.nvim",
 	dependencies = { "nvim-lua/plenary.nvim", "lspconfig", "hrsh7th/cmp-nvim-lsp" },

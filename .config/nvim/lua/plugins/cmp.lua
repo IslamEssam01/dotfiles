@@ -24,6 +24,7 @@ return {
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-nvim-lua" },
 			{ "hrsh7th/cmp-cmdline" },
+			{ "lukas-reineke/cmp-under-comparator" },
 		},
 		config = function()
 			local has_words_before = function()
@@ -88,7 +89,8 @@ return {
 								vim_item.menu = "Path"
 							elseif entry.source.name == "nvim_lua" then
 								vim_item.menu = "Lua"
-							end
+							end      
+                            vim_item = require('tailwindcss-colorizer-cmp').formatter(entry, vim_item)
 							return vim_item
 						end,
 					}),
@@ -129,6 +131,18 @@ return {
 				},
 				experimental = {
 					ghost_text = true,
+				},
+				sorting = {
+					comparators = {
+						cmp.config.compare.offset,
+						cmp.config.compare.exact,
+						cmp.config.compare.score,
+						require("cmp-under-comparator").under,
+						cmp.config.compare.kind,
+						cmp.config.compare.sort_text,
+						cmp.config.compare.length,
+						cmp.config.compare.order,
+					},
 				},
 			}) -- `/` cmdline setup.
 			cmp.setup.cmdline("/", {

@@ -16,6 +16,11 @@ return {
 
 		config = function()
 			require("telescope").setup({
+				pickers = {
+					find_files = {
+						hidden = true,
+					},
+				},
 				extensions = {
 					undo = { use_delta = true },
 
@@ -43,6 +48,8 @@ return {
 			require("telescope").load_extension("undo")
 
 			require("telescope").load_extension("sessions_picker")
+			require("telescope").load_extension("neoclip")
+			require("telescope").load_extension("macroscope")
 		end,
 	},
 }

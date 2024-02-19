@@ -6,6 +6,7 @@ set -g -x fish_greeting ''
 starship init fish | source
 zoxide init fish | source
 set -Ux EDITOR nvim
+set -Ux VISUAL nvim
 # alias mountEECE='~/mountEECE-RClone.sh'
 # alias unmountEECE='~/unmountEECE-RClone.sh'
 
@@ -16,6 +17,7 @@ fzf_configure_bindings
 
 # ~/.config/tmux/plugins
 fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
+fish_add_path $HOME/.cargo/bin
 
 # TokyoNight Color Palette
 set -l foreground c0caf5
@@ -58,3 +60,6 @@ set -g fish_pager_color_selected_background --background=$selection
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# Created by `pipx` on 2024-02-16 14:58:13
+set PATH $PATH /home/islam/.local/bin

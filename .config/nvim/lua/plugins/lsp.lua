@@ -38,8 +38,13 @@ return {
 
 				-- for folding in ufo plugin
 				for _, ls in ipairs(lsp_servers) do
-					if ls ~= "lua_ls" and ls ~= "tsserver" and ls ~= "jsonls" then
+					if ls ~= "lua_ls" and ls ~= "tsserver" and ls ~= "jsonls" and ls ~= "tailwindcss" then
 						require("lspconfig")[ls].setup({
+							capabilities = capabilities,
+						})
+					end
+					if ls == "tailwindcss" then
+						require("lspconfig").tailwindcss.setup({
 							capabilities = capabilities,
 						})
 					end
@@ -63,25 +68,6 @@ return {
 							},
 						})
 					end
-					-- if ls == "tsserver" then
-					-- 	local function organize_imports()
-					-- 		local params = {
-					-- 			command = "_typescript.organizeImports",
-					-- 			arguments = { vim.api.nvim_buf_get_name(0) },
-					-- 		}
-					-- 		vim.lsp.buf.execute_command(params)
-					-- 	end
-					-- 	require("lspconfig").tsserver.setup({
-					-- 		capabilities = capabilities,
-					-- 		on_attach = function(client, bfnr)
-					-- 			vim.api.nvim_create_user_command(
-					-- 				"OrganizeImports",
-					-- 				organize_imports,
-					-- 				{ desc = "Organize Imports" }
-					-- 			)
-					-- 		end,
-					-- 	})
-					-- end
 
 					if ls == "jsonls" then
 						require("lspconfig").jsonls.setup({

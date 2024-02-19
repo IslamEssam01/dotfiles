@@ -1,3 +1,6 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.opt.shell = "/bin/bash"
 
 vim.opt.nu = true
@@ -47,6 +50,9 @@ vim.opt.splitright = true
 vim.cmd([[autocmd FileType * set formatoptions-=cro]])
 
 vim.opt.inccommand = "split"
+vim.opt.conceallevel = 0
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
 
 --vim.cmd([[autocmd TextChanged,TextChangedI * if &buftype=="" && !&readonly | silent write|endif]])
 --[[ vim.opt.updatetime = 1000 ]]

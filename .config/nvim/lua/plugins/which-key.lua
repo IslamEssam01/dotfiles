@@ -67,12 +67,6 @@ return {
 				"<cmd> UndotreeToggle <CR>",
 				"Toggle undotree",
 			},
-			mm = {
-				function()
-					require("harpoon"):list():append()
-				end,
-				"mark file in harpoon",
-			},
 		}, { prefix = "<leader>" })
 	end,
 }

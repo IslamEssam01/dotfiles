@@ -15,6 +15,7 @@ return {
 				"js-debug-adapter",
 				"stylua",
 				"prettierd",
+				"cspell",
 				unpack(lsp_servers),
 			},
 			auto_update = true,

@@ -1,5 +1,4 @@
 return {
-	"tsserver",
 	"eslint",
 	"lua_ls",
 	"emmet_language_server",
@@ -10,4 +9,6 @@ return {
 	"jsonls",
 	"clangd",
 	"pyright",
+	"tsserver",
+	"tailwindcss",
 }

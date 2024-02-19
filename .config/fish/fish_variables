@@ -1,6 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export EDITOR:nvim
+SETUVAR --export --path PATH:/home/islam/\x2ecargo/bin
+SETUVAR --export VISUAL:nvim
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_cancel:\x2dr
@@ -13,4 +15,4 @@ SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
 SETUVAR fish_key_bindings:fish_default_key_bindings
-SETUVAR fish_user_paths:/home/islam/\x2econfig/tmux/plugins/t\x2dsmart\x2dtmux\x2dsession\x2dmanager/bin
+SETUVAR fish_user_paths:/home/islam/\x2ecargo/bin\x1e/home/islam/\x2econfig/tmux/plugins/t\x2dsmart\x2dtmux\x2dsession\x2dmanager/bin
