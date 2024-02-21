@@ -129,9 +129,9 @@ return {
 					end
 				end
 
-				-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-				-- 	silent = true,
-				-- })
+				vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+					border = "rounded",
+				})
 
 				vim.api.nvim_create_autocmd("LspAttach", {
 					desc = "LSP actions",
@@ -143,11 +143,11 @@ return {
 
 						vim.keymap.set("n", "gd", "<cmd>:Lspsaga goto_definition<cr>", opts)
 						vim.keymap.set("n", "gpd", "<cmd>:Lspsaga peek_definition<cr>", opts)
-						vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-						vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
+						vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+						vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 						vim.keymap.set("n", "go", "<cmd>:Lspsaga goto_type_definition<cr>", opts)
 						vim.keymap.set("n", "gpf", "<cmd>:Lspsaga finder<cr>", opts)
-						vim.keymap.set("n", "K", "<cmd>:Lspsaga hover_doc <cr>", opts)
+						vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 						vim.keymap.set("n", "<leader>a", "<cmd>:Lspsaga outline<cr>")
 						vim.keymap.set("n", "<leader>vws", function()
 							vim.lsp.buf.workspace_symbol()

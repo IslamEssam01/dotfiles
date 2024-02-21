@@ -26,6 +26,10 @@ return {
 				name = "work",
 				path = "~/vaults/work",
 			},
+			{
+				name = "study",
+				path = "~/vaults/study",
+			},
 		},
 	},
 }

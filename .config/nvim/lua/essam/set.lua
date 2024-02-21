@@ -40,11 +40,13 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 vim.o.timeout = true
 vim.o.timeoutlen = 500
 vim.opt.clipboard = "unnamedplus"
 vim.opt.mouse = "a"
 vim.opt.splitright = true
+vim.opt.syntax = "on"
 
 -- this is for comments
 vim.cmd([[autocmd FileType * set formatoptions-=cro]])
