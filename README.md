@@ -73,10 +73,24 @@ xclip
 VLC  
 7-zip-full
 
+
+wlr-randr
+swaybg
+hypridle
+hyprland
+wl-clipboard
+swaylock-effects
+lxappearance
+qt5ct
+
+
+
+
 ## fonts
 
 JetBrainsMono Nerd Font
 noto fonts emoji
+font awesome
 
 ## Set up delta and delta theme
 
