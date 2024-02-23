@@ -1,8 +1,10 @@
 # Requirments
 
-light dm  
-systemd  
-xfce
+<!-- light dm   -->
+<!-- systemd   -->
+<!-- xfce -->
+sddm
+hyprland
 
 yay as aur helper (arch)
 
@@ -49,9 +51,7 @@ brightnessctl
 acpi  
 sysstat  
 lm_sensors  
-betterlockscreen  
 rofi  
-rofi-wifi-menu  
 Network Manager  
 nm-applet  
 iw  
@@ -77,11 +77,17 @@ VLC
 wlr-randr
 swaybg
 hypridle
-hyprland
 wl-clipboard
 swaylock-effects
 lxappearance
 qt5ct
+waybar
+dunst
+xdg-desktop-portal-hyprland
+pavucontrol
+pipewire
+qt5-wayland
+python-gobject
 
 
 
