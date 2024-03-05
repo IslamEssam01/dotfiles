@@ -1,3 +1,8 @@
 #! /bin/sh
 
-brightnessctl s 50% & swaylock -i ~/wallpapers/outerwilds.jpg --indicator --clock --timestr "%l:%H:%S %p" ; brightnessctl s 100%
+# ./dpms.sh & swaylock -i ~/wallpapers/outerwilds.jpg --indicator --clock --timestr "%l:%M:%S %p" 
+    if  ! pgrep -x "swaylock" > /dev/null
+    then
+        # Your command here
+        swaylock -i ~/wallpapers/outerwilds.jpg --indicator --clock --timestr "%l:%M:%S %p"   --indicator-idle-visible 
+    fi

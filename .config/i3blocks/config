@@ -1,7 +1,7 @@
 
 
 [bandwidth]
-full_text=<span fallback='true'>   0.0 B/s</span> <span fallback='true'>   0.0 B/s</span>
+full_text= <span fallback='true'>   0.0 B/s</span> <span fallback='true'>   0.0 B/s</span>
 command=~/.config/i3blocks/bandwidth/bandwidth2 
 interval=persist
 markup=pango

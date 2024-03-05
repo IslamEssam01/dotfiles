@@ -46,6 +46,9 @@ return {
 					if ls == "tailwindcss" then
 						require("lspconfig").tailwindcss.setup({
 							capabilities = capabilities,
+							on_attach = function(client, bufnr)
+								require("tailwindcss-colors").buf_attach(bufnr)
+							end,
 						})
 					end
 					if ls == "lua_ls" then
@@ -129,9 +132,23 @@ return {
 					end
 				end
 
-				vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-					border = "rounded",
-				})
+				-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+				-- 	border = "rounded",
+				-- 	silence = true,
+				-- })
+				vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
+					config = config or { border = "rounded" }
+					config.focus_id = ctx.method
+					if not (result and result.contents) then
+						return
+					end
+					local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
+					markdown_lines = vim.lsp.util.trim_empty_lines(markdown_lines)
+					if vim.tbl_isempty(markdown_lines) then
+						return
+					end
+					return vim.lsp.util.open_floating_preview(markdown_lines, "markdown", config)
+				end
 
 				vim.api.nvim_create_autocmd("LspAttach", {
 					desc = "LSP actions",
@@ -141,13 +158,23 @@ return {
 						-- these will be buffer-local keybindings
 						-- because they only work if you have an active language server
 
-						vim.keymap.set("n", "gd", "<cmd>:Lspsaga goto_definition<cr>", opts)
-						vim.keymap.set("n", "gpd", "<cmd>:Lspsaga peek_definition<cr>", opts)
-						vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-						vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-						vim.keymap.set("n", "go", "<cmd>:Lspsaga goto_type_definition<cr>", opts)
+						vim.keymap.set("n", "gd", vim.lsp.buf.definition, { unpack(opts), desc = "Goto Definition" })
+						vim.keymap.set("n", "gpd", "<cmd>:Lspsaga peek_definition<cr>", opt)
+						vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { unpack(opts), desc = "Goto Declaration" })
+						vim.keymap.set(
+							"n",
+							"gi",
+							vim.lsp.buf.implementation,
+							{ unpack(opts), desc = "See Implementation" }
+						)
+						vim.keymap.set(
+							"n",
+							"go",
+							vim.lsp.buf.type_definition,
+							{ unpack(opts), desc = "Goto Type Definition" }
+						)
 						vim.keymap.set("n", "gpf", "<cmd>:Lspsaga finder<cr>", opts)
-						vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+						vim.keymap.set("n", "K", vim.lsp.buf.hover, { unpack(opts), desc = "Hover Documentation" })
 						vim.keymap.set("n", "<leader>a", "<cmd>:Lspsaga outline<cr>")
 						vim.keymap.set("n", "<leader>vws", function()
 							vim.lsp.buf.workspace_symbol()
@@ -188,7 +215,7 @@ return {
 
 						vim.keymap.set({ "n", "v" }, "<leader>vca", "<cmd>:Lspsaga code_action<cr>", opts)
 
-						vim.keymap.set("n", "<leader>vrn", "<cmd>:Lspsaga rename<cr>", opts)
+						vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
 						-- vim.keymap.set("i", "<C-h>", function()
 						-- 	vim.lsp.buf.signature_help()
 						-- end, opts)
@@ -197,6 +224,8 @@ return {
 
 				vim.diagnostic.config({
 					virtual_text = true,
+					update_in_insert = true,
+					signs = true,
 				})
 			end,
 		},

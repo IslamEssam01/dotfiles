@@ -18,6 +18,7 @@ return {
 				g = { "<cmd> Telescope live_grep <CR>", "live grep" },
 				p = { "<cmd> Telescope sessions_picker <CR>", "fuzzy find sessions" },
 				f = { "<cmd> Telescope find_files <CR>", "fuzzy find files" },
+				l = { "<cmd> Telescope git_files <CR>", "fuzzy find files in git" },
 
 				{
 					[["_dp]],
@@ -66,6 +67,12 @@ return {
 			u = {
 				"<cmd> UndotreeToggle <CR>",
 				"Toggle undotree",
+			},
+			f = {
+				function()
+					require("conform").format({ timeout_ms = 3000, lsp_fallback = true })
+				end,
+				"Format File",
 			},
 		}, { prefix = "<leader>" })
 	end,

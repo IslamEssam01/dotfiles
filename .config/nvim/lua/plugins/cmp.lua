@@ -6,10 +6,11 @@ return {
 		-- follow latest release.
 		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 		-- install jsregexp (optional!).
+		dependencies = { "rafamadriz/friendly-snippets" },
 		build = "make install_jsregexp",
 		config = function()
-			require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets" } })
 			require("luasnip.loaders.from_vscode").lazy_load()
+			require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets" } })
 		end,
 	},
 
@@ -89,8 +90,8 @@ return {
 								vim_item.menu = "Path"
 							elseif entry.source.name == "nvim_lua" then
 								vim_item.menu = "Lua"
-							end      
-                            vim_item = require('tailwindcss-colorizer-cmp').formatter(entry, vim_item)
+							end
+							vim_item = require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
 							return vim_item
 						end,
 					}),

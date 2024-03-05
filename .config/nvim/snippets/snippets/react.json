@@ -40,19 +40,25 @@
     "importCSSModule": {
         "prefix": "csm",
         "scope": "javascript,typescript,javascriptreact",
-        "body": ["import styles from './${TM_FILENAME_BASE}.module.css'"],
+        "body": [
+            "import styles from './${TM_FILENAME_BASE}.module.css'"
+        ],
         "description": "Import CSS Module as `styles`"
     },
     "importSCSSModule": {
         "prefix": "scsm",
         "scope": "javascript,typescript,javascriptreact",
-        "body": ["import styles from './${TM_FILENAME_BASE}.module.scss'"],
+        "body": [
+            "import styles from './${TM_FILENAME_BASE}.module.scss'"
+        ],
         "description": "Import SCSS Module as `styles`"
     },
     "exportDefaultIndex": {
         "prefix": "epi",
         "scope": "javascript,typescript,javascriptreact",
-        "body": ["export {default} from './${TM_DIRECTORY/^.+\\/(.*)$/$1/}'"],
+        "body": [
+            "export {default} from './${TM_DIRECTORY/^.+\\/(.*)$/$1/}'"
+        ],
         "description": "exports the component in the folder"
     }
 }

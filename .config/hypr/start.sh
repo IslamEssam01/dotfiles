@@ -4,4 +4,5 @@ swaybg -i ~/wallpapers/outerwilds.jpg &
 nm-applet &
 waybar &
 hypridle & 
-dunst
+dunst &
+sway-audio-idle-inhibit

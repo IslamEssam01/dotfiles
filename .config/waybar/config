@@ -27,10 +27,10 @@
         //     }
         // },
         "hyprland/submap": {
-    "format": "{}",
-    "max-length": 8,
-    "tooltip": false
-},
+            "format": "{}",
+            "max-length": 8,
+            "tooltip": false
+        },
         "hyprland/language": {
             "format": "<big></big> {}",
             "format-en": "En",
@@ -95,17 +95,17 @@
         "clock": {
             // "timezone": "America/New_York",
             // "interval":1,
-            "format": "  {:%H:%M     %e %b}",
+            "format": "  {:%I:%M %p     %e %b}",
             "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
             "format-alt": "{:%Y-%m-%d}"
         },
         "cpu": {
-  "interval": "1",      
-        "format": "  {max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>",
-        "max-length": 13,
-        "min-length": 13,
-        "on-click": "kitty -e htop --sort-key PERCENT_CPU",
-        "tooltip": false
+            "interval": "1",      
+            "format": "  {max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>",
+            "max-length": 13,
+            "min-length": 13,
+            "on-click": "kitty -e htop --sort-key PERCENT_CPU",
+            "tooltip": false
         },
         "memory": {
             "format": "{}% 🐏"
@@ -143,12 +143,17 @@
         "network": {
             // "interface": "wlp2*", // (Optional) To force the use of this interface
             //"format-wifi": "{essid} ({signalStrength}%) ",
-            "format-wifi": "{essid} ",
+            // "format-wifi": "{essid} ",
+            // "format-wifi": "{bandwidthDownBits}  {bandwidthUpBits}",
+            "format-wifi": "   {bandwidthDownBytes}    {bandwidthUpBytes} ",
+            "format-ethernet": "   {bandwidthDownBytes}    {bandwidthUpBytes} ",
             "format-ethernet": "{ipaddr}/{cidr} ",
             "tooltip-format": "{ifname} via {gwaddr} ",
             "format-linked": "{ifname} (No IP) ",
-            "format-disconnected": "Disconnected ⚠",
-            "format-alt": "{ifname}: {ipaddr}/{cidr}"
+            //"format-disconnected": "Disconnected ⚠ ",
+            "format-disconnected": "Disconnected  ",
+            "format-alt": "{ifname}: {ipaddr}/{cidr}",
+            "interval":5
         },
         "pulseaudio": {
             // "scroll-step": 1, // %, can be a float

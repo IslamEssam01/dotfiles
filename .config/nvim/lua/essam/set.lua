@@ -1,7 +1,7 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.opt.shell = "/bin/bash"
+vim.opt.shell = "/bin/sh"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -21,7 +21,8 @@ vim.opt.smartcase = true
 
 vim.opt.smartindent = true
 
-vim.opt.wrap = false
+vim.opt.wrap = true
+vim.opt.breakindent = true
 
 vim.opt.swapfile = false
 
@@ -64,11 +65,9 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "InsertLeavePre", "BufLeave", "Focu
 	pattern = { "*" },
 	callback = function(client, bufnr)
 		if vim.bo.buftype == "" and not vim.bo.readonly then
-			vim.api.nvim_command("silent update")
+			-- vim.api.nvim_command("silent update")
+			vim.cmd("silent update")
 		end
 	end,
 })
 --[[ vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
-vim.diagnostic.config({
-	update_in_insert = true,
-})

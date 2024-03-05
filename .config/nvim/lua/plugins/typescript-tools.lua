@@ -13,7 +13,12 @@ return {
 				vim.keymap.set("n", "gsd", "<cmd>TSToolsGoToSourceDefinition<cr>", { buffer = bufnr, remap = false })
 			end,
 			capabilities = capabilities,
-			settings = { publish_diagnostic_on = "change" },
+			settings = {
+				publish_diagnostic_on = "change",
+				tsserver_file_preferences = {
+					importModuleSpecifierPreference = "non-relative",
+				},
+			},
 		})
 	end,
 }

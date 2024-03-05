@@ -7,6 +7,7 @@ starship init fish | source
 zoxide init fish | source
 set -Ux EDITOR nvim
 set -Ux VISUAL nvim
+set -Ux MOZ_ENABLE_WAYLAND 1
 # alias mountEECE='~/mountEECE-RClone.sh'
 # alias unmountEECE='~/unmountEECE-RClone.sh'
 
