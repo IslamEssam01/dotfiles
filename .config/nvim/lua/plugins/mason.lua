@@ -15,6 +15,7 @@ return {
 				"js-debug-adapter",
 				"stylua",
 				"prettierd",
+                "latexindent",
 				unpack(lsp_servers),
 			},
 			auto_update = true,

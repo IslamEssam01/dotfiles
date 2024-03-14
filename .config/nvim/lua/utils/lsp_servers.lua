@@ -11,4 +11,5 @@ return {
 	"pyright",
 	"tsserver",
 	"tailwindcss",
+	"texlab",
 }

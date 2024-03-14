@@ -29,3 +29,4 @@ vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
 
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<CR>")
 vim.keymap.set("n", "<S-h>", "<cmd>bprevious<CR>")
+

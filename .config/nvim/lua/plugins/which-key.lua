@@ -74,6 +74,14 @@ return {
 				end,
 				"Format File",
 			},
+			n = {
+				"<cmd> lua require('nabla').popup() <CR>",
+				"nabla popup",
+			},
+			t = {
+				"<cmd> lua require('nabla').toggle_virt({autogen=true}) <CR>",
+				"nabla toggle virtual line",
+			},
 		}, { prefix = "<leader>" })
 	end,
 }

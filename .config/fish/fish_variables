@@ -4,7 +4,7 @@ SETUVAR --export EDITOR:nvim
 SETUVAR --export MOZ_ENABLE_WAYLAND:1
 SETUVAR --export --path PATH:/home/islam/\x2ecargo/bin
 SETUVAR --export VISUAL:nvim
-SETUVAR --export XDG_CURRENT_DESKTOP:HYPRLAND\x1eflameshot
+SETUVAR --export XDG_CURRENT_DESKTOP:SWAY
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_cancel:\x2dr

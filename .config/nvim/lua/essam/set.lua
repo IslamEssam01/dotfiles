@@ -61,7 +61,7 @@ vim.opt.spelllang = "en_us"
 --[[ vim.opt.updatetime = 1000 ]]
 --[[ vim.cmd( [[autocmd InsertLeave,InsertLeavePre,BufLeave,FocusLost,CursorHold,CursorHoldI * if &buftype=="" && !&readonly |silent update  | endif]]
 
-vim.api.nvim_create_autocmd({ "InsertLeave", "InsertLeavePre", "BufLeave", "FocusLost" }, {
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
 	pattern = { "*" },
 	callback = function(client, bufnr)
 		if vim.bo.buftype == "" and not vim.bo.readonly then

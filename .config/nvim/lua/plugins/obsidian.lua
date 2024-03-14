@@ -30,6 +30,10 @@ return {
 				name = "study",
 				path = "~/vaults/study",
 			},
+			{
+				name = "EECE",
+				path = "~/vaults/EECE/",
+			},
 		},
 	},
 }

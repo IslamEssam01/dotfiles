@@ -13,8 +13,14 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				javascriptreact = { "prettierd" },
+				typescriptreact = { "prettierd" },
 				javascript = { "prettierd" },
 				typescript = { "prettierd" },
+				html = { "prettierd" },
+				css = { "prettierd" },
+				scss = { "prettierd" },
+
+				tex = { "latexindent" },
 			},
 		})
 		vim.api.nvim_create_autocmd("BufWritePre", {
